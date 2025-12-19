@@ -1,0 +1,2534 @@
+
+; actor.ltx
+![actor]
+player_hud_section      = actor_hud
+
+
+[actor_hud]
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_01
+
+position                = -0.044000,-0.156000,0.100000
+orientation             = -0.500000,1.000000,-2.000000
+
+
+ancor_0        = lead_gun ;r_hand
+ancor_1        = l_hand
+
+[actor_hud_01]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_01
+[actor_hud_02]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_02
+[actor_hud_03]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_03
+[actor_hud_04]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_04
+[actor_hud_05]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_05
+[actor_hud_06]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_06
+[actor_hud_07]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_07
+[actor_hud_exo]:actor_hud
+visual         			= dynamics\weapons\wpn_hand\wpn_hand_exo
+
+; defines.ltx
+[hud_base]
+aim_hud_offset_pos				= 0,0,0
+aim_hud_offset_rot				= 0,0,0
+
+aim_hud_offset_pos_16x9			= 0,0,0
+aim_hud_offset_rot_16x9			= 0,0,0
+
+gl_hud_offset_pos_16x9			= 0,0,0
+gl_hud_offset_rot_16x9			= 0,0,0
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+;наклоны оружия при ходьбе
+hud_move_speed_rot = 3			;скорость доворота до заданного угла			
+hud_move_speed_pos = 2		        ;скорость перемещения до заданной позиции
+hud_move_stabilize_factor = 3.5		;во сколько раз быстрее возвращаемся в нейтральное положение при идле
+hud_move_weaponhide_factor = 3.5	;во сколько раз быстрее возвращаемся в нейтральное положение при убирании оружия
+hud_move_unzoom_factor = 2.0
+hud_move_slow_factor = 0.5		;во сколько раз менять амплитуду при шаге
+hud_move_crouch_factor = 0.5		;во сколько раз менять амплитуду при присяде
+hud_move_slow_crouch_factor = 0.3	;во сколько раз менять амплитуду при полном присяде
+
+;задаются максимальные отклонения от центрального в разных режимах ходьбы
+;Аддитивно!
+
+;стрейф влево
+hud_move_left_offset_pos = -0.03,-0.018,0
+hud_move_left_offset_rot = 0,0,-3.5
+
+hud_move_left_offset_pos_16x9 = -0.03,-0.018,0
+hud_move_left_offset_rot_16x9 = 0,0,-3.5
+
+;стрейф вправо
+hud_move_right_offset_pos = 0.03,-0.005,0
+hud_move_right_offset_rot = 0,0,5
+
+hud_move_right_offset_pos_16x9 = 0.03,-0.005,0
+hud_move_right_offset_rot_16x9 = 0,0,5
+
+;движение вперед
+hud_move_forward_offset_pos = 0,-0.005,-0.035
+hud_move_forward_offset_rot = 0,0,0
+
+hud_move_forward_offset_pos_16x9 = 0,-0.005,-0.035
+hud_move_forward_offset_rot_16x9 = 0,0,0
+
+;движение назад
+hud_move_back_offset_pos = 0,-0.005,0.045
+hud_move_back_offset_rot = 0,0,0
+
+hud_move_back_offset_pos_16x9 = 0,-0.005,0.045
+hud_move_back_offset_rot_16x9 = 0,0,0
+
+;прыжок
+hud_move_jump_offset_pos = 0,0.05,0.03
+hud_move_jump_offset_rot = 0,-10,-10
+
+hud_move_jump_offset_pos_16x9 = 0,0.05,0.03
+hud_move_jump_offset_rot_16x9 = 0,-10,-10
+
+;падение
+hud_move_fall_offset_pos = 0,-0.05,0.06
+hud_move_fall_offset_rot = 0,5,0
+
+hud_move_fall_offset_pos_16x9 = 0,-0.05,0.06
+hud_move_fall_offset_rot_16x9 = 0,5,0
+
+;приземление - первая фаза
+hud_move_landing_offset_pos = 0,-0.2,0.03
+hud_move_landing_offset_rot = 0,-5,10
+
+hud_move_landing_offset_pos_16x9 = 0,-0.2,0.03
+hud_move_landing_offset_rot_16x9 = 0,-5,10
+
+;приземление - вторая фаза
+hud_move_landing2_offset_pos = 0,-0.3,0.03
+hud_move_landing2_offset_rot = 0,-13,20
+
+hud_move_landing2_offset_pos_16x9 = 0,-0.3,0.03
+hud_move_landing2_offset_rot_16x9 = 0,-13,20
+
+;переход из стойки в присяд
+to_crouch_time = 0.15
+hud_move_to_crouch_offset_pos = 0,-0.02, 0
+hud_move_to_crouch_offset_rot = 0,1.5,-4
+
+hud_move_to_crouch_offset_pos_16x9 = 0,-0.02, 0
+hud_move_to_crouch_offset_rot_16x9 = 0,1.5,-4
+
+;переход из присяда в стойку
+from_crouch_time = 0.15
+hud_move_from_crouch_offset_pos = 0,-0.008,0
+hud_move_from_crouch_offset_rot = 0,-0.8,3
+
+hud_move_from_crouch_offset_pos_16x9 = 0,-0.008,0
+hud_move_from_crouch_offset_rot_16x9 = 0,-0.8,3
+
+;переход из присяда в низкий присяд
+to_slow_crouch_time = 0.15
+hud_move_to_slow_crouch_offset_pos = 0,-0.05, 0
+hud_move_to_slow_crouch_offset_rot = 0,1,-2
+
+hud_move_to_slow_crouch_offset_pos_16x9 = 0,-0.05, 0
+hud_move_to_slow_crouch_offset_rot_16x9 = 0,1,-2
+
+;переход из низкого присяда в присяд
+from_slow_crouch_time = 0.15
+hud_move_from_slow_crouch_offset_pos = 0,0.02,0
+hud_move_from_slow_crouch_offset_rot = 0,-1,2
+
+hud_move_from_slow_crouch_offset_pos_16x9 = 0,0.02,0
+hud_move_from_slow_crouch_offset_rot_16x9 = 0,-1,2
+
+;переход из обычного в наклон влево
+to_llookout_time = 0.15
+hud_move_to_llookout_offset_pos 	= -0.01, 0, 0
+hud_move_to_llookout_offset_rot		= 0,0,0
+hud_move_to_llookout_offset_pos_16x9 	= -0.01, 0, 0
+hud_move_to_llookout_offset_rot_16x9	= 0,0,0
+
+;переход из наклона влево в обычный
+from_llookout_time = 0.15
+hud_move_from_llookout_offset_pos 	= -0.01, 0, 0
+hud_move_from_llookout_offset_rot	= 0,0,0
+hud_move_from_llookout_offset_pos_16x9 	= -0.01, 0, 0
+hud_move_from_llookout_offset_rot_16x9	= 0,0,0
+
+
+;переход из обычного в наклон вправо
+to_rlookout_time = 0.15
+hud_move_to_rlookout_offset_pos 	= 0.01, 0, 0
+hud_move_to_rlookout_offset_rot		= 0,0,0
+hud_move_to_rlookout_offset_pos_16x9 	= 0.01, 0, 0
+hud_move_to_rlookout_offset_rot_16x9	= 0,0,0
+
+;переход из наклона вправо в обычный
+from_rlookout_time = 0.15
+hud_move_from_rlookout_offset_pos 	= 0.01, 0, 0
+hud_move_from_rlookout_offset_rot	= 0,0,0
+hud_move_from_rlookout_offset_pos_16x9 	= 0.01, 0, 0
+hud_move_from_rlookout_offset_rot_16x9	= 0,0,0
+
+;наклон влево (постоянная компонента)
+hud_move_llookout_offset_speed_factor = 2.8
+hud_move_llookout_offset_pos 		= -0.045, -0.03, 0
+hud_move_llookout_offset_pos_16x9 	= -0.045, -0.03, 0
+hud_move_llookout_offset_rot 		= 0, 0, -9
+hud_move_llookout_offset_rot_16x9 	= 0, 0, -9
+
+;наклон вправо (постоянная компонента)
+hud_move_rlookout_offset_speed_factor = 2.8
+hud_move_rlookout_offset_pos 		= 0.04, -0.01, 0
+hud_move_rlookout_offset_pos_16x9 	= 0.04, -0.01, 0
+hud_move_rlookout_offset_rot 		= 0, 0, 10
+hud_move_rlookout_offset_rot_16x9 	= 0, 0, 10
+
+
+;аналогично для прицеливания
+;переход из стойки в присяд
+hud_aim_move_to_crouch_offset_pos = 0,0.003, 0
+hud_aim_move_to_crouch_offset_rot = 0,0.3,-0.5
+
+hud_aim_move_to_crouch_offset_pos_16x9 = 0,0.003, 0
+hud_aim_move_to_crouch_offset_rot_16x9 = 0,0.3,-0.5
+
+;переход из присяда в стойку
+hud_aim_move_from_crouch_offset_pos = 0,-0.003,0
+hud_aim_move_from_crouch_offset_rot = 0,-0.3,0.5
+
+hud_aim_move_from_crouch_offset_pos_16x9 = 0,-0.003,0
+hud_aim_move_from_crouch_offset_rot_16x9 = 0,-0.3,0.5
+
+;переход из присяда в низкий присяд
+hud_aim_move_to_slow_crouch_offset_pos = 0,0.001, 0
+hud_aim_move_to_slow_crouch_offset_rot = 0,0.3,-0.5
+
+hud_aim_move_to_slow_crouch_offset_pos_16x9 = 0,0.002, 0
+hud_aim_move_to_slow_crouch_offset_rot_16x9 = 0,0.3,-0.5
+
+;переход из низкого присяда в присяд
+hud_aim_move_from_slow_crouch_offset_pos = 0,-0.001,0
+hud_aim_move_from_slow_crouch_offset_rot = 0,-0.3,0.5
+
+hud_aim_move_from_slow_crouch_offset_pos_16x9 = 0,-0.001,0
+hud_aim_move_from_slow_crouch_offset_rot_16x9 = 0,-0.3,0.5
+
+;переход из обычного в наклон влево
+hud_aim_move_to_llookout_offset_pos 	        = -0.003, 0, 0
+hud_aim_move_to_llookout_offset_rot		= 0,0,-0.6
+hud_aim_move_to_llookout_offset_pos_16x9 	= -0.003, 0, 0
+hud_aim_move_to_llookout_offset_rot_16x9	= 0,0,-0.6
+
+;переход из наклона влево в обычный
+hud_aim_move_from_llookout_offset_pos 	        = 0, 0, 0
+hud_aim_move_from_llookout_offset_rot	        = 0,0,-1
+hud_aim_move_from_llookout_offset_pos_16x9 	= 0, 0, 0
+hud_aim_move_from_llookout_offset_rot_16x9	= 0,0,-1
+
+
+;переход из обычного в наклон вправо
+hud_aim_move_to_rlookout_offset_pos 	        = 0.003, 0, 0
+hud_aim_move_to_rlookout_offset_rot		= 0,0,0.6
+hud_aim_move_to_rlookout_offset_pos_16x9 	= 0.003, 0, 0
+hud_aim_move_to_rlookout_offset_rot_16x9	= 0,0,0.6
+
+;переход из наклона вправо в обычный
+hud_aim_move_from_rlookout_offset_pos 	        = 0, 0, 0
+hud_aim_move_from_rlookout_offset_rot	        = 0,0,1
+hud_aim_move_from_rlookout_offset_pos_16x9 	= 0, 0, 0
+hud_aim_move_from_rlookout_offset_rot_16x9	= 0,0,1
+
+hud_collision_enabled							= true
+hud_collision_offset_pos						= 0,-0.5,0
+hud_collision_offset_pos_16x9					= 0,-0.5,0
+hud_collision_offset_rot						= -0.8,0,0
+hud_collision_offset_rot_16x9					= -0.8,0,0
+
+; outfit.ltx
+![outfit_base]
+player_hud_section	= actor_hud_01
+
+
+; w_abakan.ltx
+
+![wpn_abakan_hud]:hud_base
+zoom_hide_crosshair        = true
+attach_place_idx        = 0
+item_visual                = dynamics\weapons\wpn_abakan\wpn_abakan_hud.ogf
+
+hands_position				= -0.073500,-0.146000,0.192000
+hands_orientation			= -2.799999,0.600000,3.099998
+
+
+hands_position_16x9				= -0.079500,-0.149500,0.131500
+hands_orientation_16x9			= -1.450001,2.199999,2.849998
+
+item_position				= 0.002869,0.003757,-0.006812
+item_orientation			= -16.124039,-3.597800,1.014648
+
+shell_point                = 0.019,0.073,0.234
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone                = wpn_body
+
+fire_point			= 0,0.049,0.716
+fire_bone                            = wpn_body
+fire_point2			= 0.0,-0.027,0.603
+fire_bone2                = wpn_body
+
+anm_show                     = abakan_draw
+anm_hide                     = abakan_holster
+anm_idle                     = abakan_idle
+anm_idle_sprint         = abakan_idle_sprint
+anm_idle_moving                         = abakan_idle_moving
+anm_shots               = abakan_shoot
+anm_reload              = abakan_reload
+anm_idle_aim                   = abakan_idle_aim
+
+anm_switch              = abakan_switch_off ;abakan_switch_off
+anm_switch_g            = abakan_switch_on ;abakan_switch_on
+anm_bore                                                = abakan_idle_bore
+
+anm_hide_w_gl           = abakan_holster_w_gl
+anm_show_w_gl           = abakan_draw_w_gl
+anm_idle_w_gl           = abakan_idle_w_gl
+anm_shots_w_gl          = abakan_shoot_w_gl
+anm_reload_w_gl         = abakan_reload_w_gl
+anm_idle_w_gl_aim       = abakan_idle_aim_w_gl
+anm_idle_sprint_w_gl                = abakan_idle_sprint_w_gl
+anm_idle_moving_w_gl                = abakan_idle_moving_w_gl
+anm_bore_w_gl                                = abakan_idle_bore_w_gl
+
+anm_show_g                         = abakan_draw_w_gl											;abakan_draw_grenade
+anm_hide_g                         = abakan_holster_w_gl										;abakan_holster_grenade
+anm_idle_g                         = abakan_idle_w_gl											;abakan_idle_grenade
+anm_reload_g                       = abakan_reload_grenade
+anm_idle_g_aim                     = abakan_idle_aim_w_gl									;abakan_idle_grenade
+anm_shots_g                        = abakan_shoot_grenade
+anm_idle_sprint_g                        = abakan_idle_sprint_w_gl						;abakan_idle_sprint_grenade
+anm_idle_moving_g                        = abakan_idle_moving_w_gl						;abakan_idle_moving_grenade
+anm_bore_g                                        = abakan_idle_bore_w_gl           ;abakan_idle_bore_grenade
+
+
+aim_hud_offset_pos				= -0.083500,0.039000,-0.066000
+aim_hud_offset_rot				= -0.005000,-0.045000,0.002500
+
+aim_hud_offset_pos_16x9				= -0.083000,0.045000,0.029000
+aim_hud_offset_rot_16x9				= 0.025000,-0.020000,0.005000
+
+gl_hud_offset_pos       	= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot       	= 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9    	= 0,0,0;-0.130000,0.003500,0.000500
+gl_hud_offset_rot_16x9    	= 0,0,0;0.052500,0.045000,-0.010000
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+; w_ak74.ltx
+![wpn_ak74_hud]:hud_base
+zoom_hide_crosshair        = true
+attach_place_idx        = 0
+item_visual                = dynamics\weapons\wpn_ak74\wpn_ak74_hud.ogf
+
+hands_position				= -0.120500,-0.180999,0.132501
+hands_orientation			= -2.599998,0.000000,-2.549999
+
+hands_position_16x9				= -0.119500,-0.199000,0.091000
+hands_orientation_16x9			= -0.750000,1.700000,-4.199999
+
+item_position				= 0.004111,0.008527,-0.005906
+item_orientation			= -15.488927,-3.320898,367.220154
+
+shell_point                = 0.017,0.054,0.17
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone                = wpn_body
+
+fire_point			= 0,0.042,0.684
+fire_bone                            = wpn_body
+fire_point2                        = 0.0,-0.011,0.553
+fire_bone2                = wpn_body
+
+anm_show						= ak74_draw
+anm_hide                = ak74_holster
+anm_idle                = ak74_idle
+anm_idle_sprint         = ak74_idle_sprint
+anm_idle_moving         = ak74_idle_moving
+anm_shots               = ak74_shoot
+anm_reload              = ak74_reload
+anm_idle_aim            = ak74_idle_aim
+
+anm_switch              = ak74_switch_off           ;abakan_switch_off
+anm_switch_g            = ak74_switch_on           ;abakan_switch_on
+anm_bore                = ak74_idle_bore
+
+anm_hide_w_gl           = ak74_holster_w_gl
+anm_show_w_gl           = ak74_draw_w_gl
+anm_idle_w_gl           = ak74_idle_w_gl
+anm_shots_w_gl          = ak74_shoot_w_gl
+anm_reload_w_gl         = ak74_reload_w_gl
+anm_idle_w_gl_aim       = ak74_idle_aim_w_gl
+anm_idle_sprint_w_gl    = ak74_idle_sprint_w_gl
+anm_idle_moving_w_gl    = ak74_idle_moving_w_gl
+anm_bore_w_gl           = ak74_idle_bore_w_gl
+
+anm_show_g              = ak74_draw_w_gl							;abakan_draw_grenade
+anm_hide_g              = ak74_holster_w_gl						;abakan_holster_grenade
+anm_idle_g              = ak74_idle_w_gl							;abakan_idle_grenade
+anm_reload_g            = ak74_reload_grenade
+anm_idle_g_aim          = ak74_idle_aim_w_gl						;abakan_idle_grenade
+anm_shots_g             = ak74_shoot_grenade
+anm_idle_sprint_g       = ak74_idle_sprint_w_gl					;abakan_idle_sprint_grenade
+anm_idle_moving_g       = ak74_idle_moving_w_gl					;abakan_idle_moving_grenade
+anm_bore_g              = ak74_idle_bore_w_gl
+
+
+aim_hud_offset_pos				= -0.101500,0.012500,-0.018000
+aim_hud_offset_rot				= -0.032500,-0.032500,0.020000
+
+aim_hud_offset_pos_16x9				= -0.100000,0.033500,0.029000
+aim_hud_offset_rot_16x9				= 0.002500,-0.002500,-0.007500
+
+gl_hud_offset_pos               = 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot               = 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9            = 0,0,0;-0.130000,0.003500,0.000500
+gl_hud_offset_rot_16x9            = 0,0,0;0.052500,0.045000,-0.010000
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+; w_ak74u.ltx
+![wpn_ak74u_hud]:hud_base
+zoom_hide_crosshair        = true
+attach_place_idx        = 0
+item_visual                = dynamics\weapons\wpn_ak74u\wpn_ak74u_hud.ogf
+
+hands_position				= -0.115000,-0.195999,0.145000
+hands_orientation			= -2.649998,0.400000,-4.099998
+
+hands_position_16x9				= -0.106500,-0.196000,0.092500
+hands_orientation_16x9			= -0.400000,2.299999,-2.550000
+
+item_position				= 0.004111,0.008527,-0.005906
+item_orientation			= -15.488927,-3.320898,367.220154
+
+shell_point                = 0.018,0.06,0.188
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone                = wpn_body
+
+fire_point			= 0,0.048,0.466
+fire_bone                            = wpn_body
+fire_point2                        = 0.0,-0.011,0.553
+fire_bone2                = wpn_body
+
+anm_show						= ak74u_draw
+anm_hide                = ak74u_holster
+anm_idle                = ak74u_idle
+anm_idle_sprint         = ak74u_idle_sprint
+anm_idle_moving         = ak74u_idle_moving
+anm_shots               = ak74u_shoot
+anm_reload              = ak74u_reload
+anm_idle_aim            = ak74u_idle_aim
+;anm_switch              = ak74u_switch_off
+;anm_switch_g            = ak74u_switch_on
+anm_bore                = ak74u_idle_bore
+
+;anm_hide_w_gl           = ak74_holster_w_gl
+;anm_show_w_gl           = ak74_draw_w_gl
+;anm_idle_w_gl           = ak74_idle_w_gl
+;anm_shots_w_gl          = ak74_shoot_w_gl
+;anm_reload_w_gl         = ak74_reload_w_gl
+;anm_idle_w_gl_aim       = ak74_idle_aim_w_gl
+;anm_idle_sprint_w_gl    = ak74_idle_sprint_w_gl
+;anm_idle_moving_w_gl    = ak74_idle_moving_w_gl
+;anm_bore_w_gl           = ak74_idle_bore_w_gl
+
+;anm_show_g              = ak74_draw_w_gl							;abakan_draw_grenade
+;anm_hide_g              = ak74_holster_w_gl						;abakan_holster_grenade
+;anm_idle_g              = ak74_idle_w_gl							;abakan_idle_grenade
+;anm_reload_g            = ak74_reload_grenade
+;anm_idle_g_aim          = ak74_idle_aim_w_gl						;abakan_idle_grenade
+;anm_shots_g             = ak74_shoot_grenade
+;anm_idle_sprint_g       = ak74_idle_sprint_w_gl					;abakan_idle_sprint_grenade
+;anm_idle_moving_g       = ak74_idle_moving_w_gl					;abakan_idle_moving_grenade
+;anm_bore_g              = ak74_idle_bore_w_gl
+
+
+aim_hud_offset_pos				= -0.104000,0.003000,-0.018000
+aim_hud_offset_rot				= -0.047500,-0.030000,0.002500
+
+aim_hud_offset_pos_16x9				= -0.121000,0.017000,0.029000
+aim_hud_offset_rot_16x9				= -0.007500,0.007500,0.020000
+
+gl_hud_offset_pos               = 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot               = 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9            = 0,0,0;-0.130000,0.003500,0.000500
+gl_hud_offset_rot_16x9            = 0,0,0;0.052500,0.045000,-0.010000
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+; w_beretta.ltx
+![wpn_beretta_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000481,-0.000050,-0.004011
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_beretta92fs\wpn_beretta92fs_hud
+attach_place_idx				= 0
+
+shell_point						= 0.011,0.045,0.466 		;0.011,0.045,0.033
+shell_bone              	= wpn_body
+
+
+fire_point			= 0,0.048,0.197
+fire_bone               	= wpn_body
+
+anm_show				= beretta_draw
+anm_show_empty			= beretta_draw, beretta_opened
+anm_hide            	= beretta_holster
+anm_hide_empty			= beretta_holster, beretta_opened
+
+anm_idle            	= beretta_idle
+anm_idle_empty      	= beretta_idle, beretta_opened
+anm_shots				= beretta_shoot
+anm_shot_l				= beretta_shoot, beretta_open
+anm_idle_aim			= beretta_idle_aim
+anm_idle_aim_empty		= beretta_idle_aim, beretta_opened
+
+anm_reload				= beretta_reload
+anm_reload_empty		= beretta_reload, beretta_close
+anm_idle_moving			= beretta_idle_moving
+anm_idle_moving_empty	= beretta_idle_moving, beretta_opened
+anm_idle_sprint			= beretta_idle_sprint
+anm_idle_sprint_empty	= beretta_idle_sprint, beretta_opened
+anm_bore				= beretta_idle_bore
+anm_bore_empty			= beretta_idle_bore, beretta_opened
+
+
+aim_hud_offset_pos				= -0.107500,0.038500,0.000000
+aim_hud_offset_rot				= 0.005000,0.007500,-0.035000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+
+aim_hud_offset_pos_16x9				= -0.166999,0.070500,0.000000
+aim_hud_offset_rot_16x9				= 0.037500,0.055000,0.002500
+
+; w_binoc.ltx
+![wpn_binoc_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position				= -0.008000,-0.244998,0.371497
+hands_orientation			= 5.450003,2.649999,-1.200001
+hands_position_16x9				= -0.008500,-0.250998,0.319998
+hands_orientation_16x9			= 5.850004,5.450003,-0.950000
+
+item_position					= 0.000746,-0.000321,0.003479
+item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\devices\dev_binoculars\dev_binoculars_hud
+attach_place_idx				= 0
+
+anm_show						= binoculars_draw
+anm_hide						= binoculars_holster
+anm_idle						= binoculars_idle
+anm_idle_aim				= binoculars_idle
+anm_idle_moving			= binoculars_idle_moving
+anm_idle_sprint			= binoculars_idle_sprint
+anm_bore						= binoculars_idle_bore
+
+aim_hud_offset_pos			= 0.0,0.022,0.0
+aim_hud_offset_rot			= 0.0,0.0,0.0
+
+aim_hud_offset_pos_16x9		= 0.0,0.022,0.0
+aim_hud_offset_rot_16x9		= 0.0,0.0,0.0
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+; w_bm16.ltx
+![wpn_bm16]
+fire_point              = 0.000000,0.136000,0.390000     ;r
+fire_point2             = 0.000000,0.136000,0.390000		;l
+
+![wpn_bm16_hud]:hud_base
+zoom_hide_crosshair				= true
+
+
+hands_position				= 0.014500,-0.096000,0.057500
+hands_orientation			= -0.450030,2.099998,-0.200003
+
+
+hands_position_16x9				= 0.016500,-0.096000,-0.004000
+hands_orientation_16x9			= 0.300000,1.350000,-2.599999
+
+item_position						= -0.003178,0.002246,0.000581
+item_orientation					= -181.191742,180.482727,-180.330688
+
+shell_point							= 0,0,0
+shell_dir                     = 0.0, 1.0, 0.0
+shell_bone							= wpn_body
+
+fire_point		= 0, 0.066, 0.514
+fire_bone                     = wpn_body
+fire_bone2                     = wpn_body
+
+attach_place_idx					= 0
+item_visual							= dynamics\weapons\wpn_bm16\wpn_bm16_hud
+
+anm_show_0			            = bm16_draw,bm16_idle_lr
+anm_show_1			            = bm16_draw,bm16_idle_l
+anm_show_2			            = bm16_draw,bm16_idle
+
+anm_hide_0			            = bm16_holster,bm16_idle_lr
+anm_hide_1			            = bm16_holster,bm16_idle_l
+anm_hide_2			            = bm16_holster,bm16_idle
+
+anm_idle_0			            = bm16_idle,bm16_idle_lr
+anm_idle_1			            = bm16_idle,bm16_idle_l
+anm_idle_2			            = bm16_idle,bm16_idle
+
+anm_idle_aim_0			         = bm16_idle_aim,bm16_idle_lr
+anm_idle_aim_1			         = bm16_idle_aim,bm16_idle_l
+anm_idle_aim_2			         = bm16_idle_aim,bm16_idle
+
+anm_idle_moving_0		         = bm16_idle_moving,bm16_idle_lr
+anm_idle_moving_1		         = bm16_idle_moving,bm16_idle_l
+anm_idle_moving_2		         = bm16_idle_moving,bm16_idle
+
+anm_idle_sprint_0		         = bm16_idle_sprint,bm16_idle_lr
+anm_idle_sprint_1		         = bm16_idle_sprint,bm16_idle_l
+anm_idle_sprint_2		         = bm16_idle_sprint,bm16_idle
+
+anm_reload_1						= bm16_reload_l
+anm_reload_2						= bm16_reload_lr
+anm_shot_1							= bm16_shoot_r
+anm_shot_2							= bm16_shoot_l
+
+anm_bore_0							= bm16_idle_bore,bm16_idle_lr
+anm_bore_1							= bm16_idle_bore,bm16_idle_l
+anm_bore_2							= bm16_idle_bore,bm16_idle
+
+
+aim_hud_offset_pos				= -0.078500,0.034000,-0.052500
+aim_hud_offset_rot				= -0.007500,-0.017500,0.007500
+
+aim_hud_offset_pos_16x9				= -0.079500,0.008000,0.043000
+aim_hud_offset_rot_16x9				= -0.047500,-0.005000,-0.030000
+;aim_hud_offset_pos_16x9				= -0.040500,0.032500,0.043000
+;aim_hud_offset_rot_16x9				= -0.017500,-0.022500,0.000000
+
+gl_hud_offset_pos					= 0,0,0
+gl_hud_offset_rot					= 0,0,0
+
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+
+; w_bolt.ltx
+![bolt_hud]:hud_base
+fire_point				= 0,0,0
+fire_bone				= wpn_body
+
+attach_place_idx		= 0
+item_visual				= dynamics\devices\dev_bolt\dev_bolt_hud
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+item_position			= 0 , 0 ,0
+item_orientation		= 0 , 0 ,0
+
+anm_hide				= dev_bolt_holster
+anm_show				= dev_bolt_draw
+anm_idle				= dev_bolt_idle
+anm_bore				= dev_bolt_idle_bore
+anm_idle_moving	 		= dev_bolt_idle_moving
+anm_idle_sprint	 		= dev_bolt_idle_sprint
+
+anm_throw_begin			= dev_bolt_shoot_start
+anm_throw_idle			= dev_bolt_shoot_idle
+anm_throw				= dev_bolt_shoot_end
+
+
+throw_point				= 0.0,0.4,0.3
+throw_dir				= 0,0,1
+
+; w_colt1911.ltx
+![wpn_colt1911_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+;hands_position				= -0.037500,-0.160000,0.002500
+;hands_orientation			= -1.550000,1.549999,1.299999
+;hands_position_16x9				= -0.007500,-0.176500,0.039000
+;hands_orientation_16x9			= -0.600001,2.299999,3.349997
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000481,-0.000050,-0.004011
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+item_visual                = dynamics\weapons\wpn_colt1911\wpn_colt1911_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.015,0.048,0.475
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.043,0.187
+fire_bone               	= wpn_body
+
+anm_show					= colt1911_draw
+anm_show_empty				= colt1911_draw, colt1911_opened
+anm_hide             		= colt1911_holster
+anm_hide_empty             	= colt1911_holster, colt1911_opened
+
+anm_idle             		= colt1911_idle
+anm_idle_empty         		= colt1911_idle, colt1911_opened
+
+anm_shots						= colt1911_shoot
+anm_shot_l						= colt1911_shoot, colt1911_open
+anm_idle_aim					= colt1911_idle_aim
+anm_idle_aim_empty				= colt1911_idle_aim, colt1911_opened
+anm_reload						= colt1911_reload
+anm_reload_empty				= colt1911_reload, colt1911_close
+
+anm_idle_moving 				= colt1911_idle_moving
+anm_idle_moving_empty			= colt1911_idle_moving, colt1911_opened
+anm_idle_sprint					= colt1911_idle_sprint
+anm_idle_sprint_empty			= colt1911_idle_sprint, colt1911_opened
+anm_bore						= colt1911_idle_bore
+anm_bore_empty					= colt1911_idle_bore, colt1911_opened
+
+aim_hud_offset_pos				= -0.106000,0.034000,0.000000
+aim_hud_offset_rot				= -0.005000,0.005000,-0.007500
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.167499,0.065000,0.000000
+aim_hud_offset_rot_16x9				= 0.027500,0.055000,0.025000
+
+; w_desert_eagle.ltx
+![wpn_desert_eagle_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+;hands_position				= -0.021000,-0.160000,0.002500
+;hands_orientation			= -0.500000,1.000000,1.149999
+;hands_position_16x9				= 0.033000,-0.189500,0.039000
+;hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.350000,0.650000,0.849999
+hands_position_16x9				= -0.010000,-0.176500,0.039000
+hands_orientation_16x9			= -1.500000,0.800000,2.449998
+
+item_position					= 0.000746,-0.000321,0.003479
+item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_desert_eagle\wpn_desert_eagle_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.021,0.057,0.456
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.048,0.222
+fire_bone               	= wpn_body
+
+anm_show					= desert_eagle_draw
+anm_show_empty				= desert_eagle_draw, desert_eagle_opened
+
+anm_hide             		= desert_eagle_holster
+anm_hide_empty         		= desert_eagle_holster, desert_eagle_opened
+
+anm_idle             		= desert_eagle_idle
+anm_idle_empty         		= desert_eagle_idle, desert_eagle_opened
+
+anm_shots					= desert_eagle_shoot
+anm_shot_l					= desert_eagle_shoot, desert_eagle_open
+
+anm_idle_aim				= desert_eagle_idle_aim
+anm_idle_aim_empty			= desert_eagle_idle_aim, desert_eagle_opened
+
+anm_reload					= desert_eagle_reload
+anm_reload_empty			= desert_eagle_reload, desert_eagle_close
+
+anm_idle_moving 			= desert_eagle_idle_moving
+anm_idle_moving_empty		= desert_eagle_idle_moving, desert_eagle_opened
+anm_idle_sprint				= desert_eagle_idle_sprint
+anm_idle_sprint_empty		= desert_eagle_idle_sprint, desert_eagle_opened
+anm_bore					= desert_eagle_idle_bore
+anm_bore_empty				= desert_eagle_idle_bore, desert_eagle_opened
+
+aim_hud_offset_pos				= -0.104500,0.015500,-0.063500
+aim_hud_offset_rot				= -0.022500,0.007500,-0.035000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.120501,0.033000,0.000000
+aim_hud_offset_rot_16x9				= -0.017500,-0.010000,-0.010000
+
+! w_f1.ltx
+![grenade_f1_hud]:hud_base
+fire_point			= 0,0,0
+fire_bone           = wpn_body
+
+
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_grenades\wpn_f1_hud
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,-2.000000
+
+
+hands_position_16x9				= -0.096500,-0.163000,0.039000
+hands_orientation_16x9			= -4.399999,1.000000,-2.000000
+
+
+item_position				= 0.004498,-0.003965,0.000290
+item_orientation			= -359.925262,-2.224621,-7.030276
+
+anm_hide				= f1_holster
+anm_show				= f1_draw
+anm_idle				= f1_idle
+anm_bore				= f1_idle_bore
+anm_idle_moving	 			= f1_idle_moving
+anm_idle_sprint	 			= f1_idle_sprint
+
+anm_throw_begin			= f1_throw_begin
+anm_throw_idle			= f1_throw_idle
+anm_throw				= f1_throw
+
+
+throw_point			= 0.0,0.4,0.3
+throw_dir			= 0,0,1
+third_person_throw_point_offset = -0.05,0.848,0.706
+
+; w_fn2000.ltx
+![wpn_fn2000_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual					= dynamics\weapons\wpn_fn2000\wpn_fn2000_hud.ogf
+
+
+hands_position				= -0.081500,-0.204000,0.288000
+hands_orientation			= 0.250001,0.649990,1.849998
+
+hands_position_16x9				= -0.032000,-0.214499,0.299498
+hands_orientation_16x9			= 2.149999,0.250000,1.399999
+
+
+item_position				= 0.005280,0.016463,-0.003394
+item_orientation			= -16.844534,-2.475593,361.820557
+
+
+shell_point					= 0.037,0.063,0.118
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+
+fire_point		= 0,0.054,0.358
+fire_bone      	      = wpn_body
+fire_point2					= 0.0,-0.008,0.408
+fire_bone2					= wpn_body
+
+anm_show             	= fn_2000_draw
+anm_hide             	= fn_2000_holster
+anm_idle             	= fn_2000_idle
+anm_idle_sprint         = fn_2000_idle_sprint_gl
+anm_idle_moving 			= fn_2000_idle_moving
+anm_shots               = fn_2000_shoot
+anm_reload              = fn_2000_reload
+anm_idle_aim           	= fn_2000_idle_aim
+
+anm_switch              = fn_2000_switch_off
+anm_switch_g            = fn_2000_switch_on
+anm_bore						= fn_2000_idle_bore
+
+anm_show_w_gl           = fn_2000_draw
+anm_hide_w_gl           = fn_2000_holster
+anm_idle_w_gl           = fn_2000_idle
+anm_shots_w_gl          = fn_2000_shoot
+anm_reload_w_gl         = fn_2000_reload
+anm_idle_w_gl_aim       = fn_2000_idle_aim
+anm_idle_sprint_w_gl		= fn_2000_idle_sprint
+anm_idle_moving_w_gl		= fn_2000_idle_moving
+anm_bore_w_gl				= fn_2000_idle_bore
+
+anm_show_g         		= fn_2000_draw_gl
+anm_hide_g         		= fn_2000_holster_gl
+anm_idle_g          		= fn_2000_idle_gl
+anm_reload_g       		= fn_2000_reload_gl
+anm_idle_g_aim      		= fn_2000_idle_aim_gl
+anm_shots_g         		= fn_2000_shoot_gl
+anm_idle_sprint_g			= fn_2000_idle_sprint_gl
+anm_idle_moving_g			= fn_2000_idle_moving_gl
+anm_bore_g					= fn_2000_idle_bore_gl
+
+
+aim_hud_offset_pos	= -0.112000,0.029500,-0.318000
+aim_hud_offset_rot	= 0.010000,0.002500,-0.010000
+
+gl_hud_offset_pos				= -0.068500,-0.091000,0.000000
+gl_hud_offset_rot				= -0.162500,0.000000,0.000000
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+aim_hud_offset_pos_16x9     = -0.112000,0.019500,-0.3018000
+aim_hud_offset_rot_16x9  	= 0.010000,0.002500,-0.010000
+
+gl_hud_offset_pos_16x9				= -0.124500,-0.084000,0.000000
+gl_hud_offset_rot_16x9				= -0.170000,0.030000,0.000000
+
+; w_fort.ltx
+![wpn_fort_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.021000,-0.160000,0.002500
+;hands_orientation			= -0.500000,1.000000,-2.000000
+;hands_position_16x9				= 0.009000,-0.170500,0.039000
+;hands_orientation_16x9			= 0.900000,1.649999,1.699999
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000494,-0.000025,-0.003510
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+
+item_visual             	= dynamics\weapons\wpn_fort\wpn_fort_hud
+attach_place_idx				= 0
+
+shell_point						= 0.013,0.041,0.474
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.04,0.149
+fire_bone               	= wpn_body
+
+anm_show					= fort_draw
+anm_show_empty				= fort_draw, fort_opened
+
+anm_hide             		= fort_holster
+anm_hide_empty        		= fort_holster, fort_opened
+
+anm_idle             		= fort_idle
+anm_idle_empty         		= fort_idle, fort_opened
+
+anm_shots					= fort_shoot
+anm_shot_l					= fort_shoot,  fort_open
+
+anm_idle_aim				= fort_idle_aim
+anm_idle_aim_empty			= fort_idle_aim, fort_opened
+
+anm_reload					= fort_reload
+anm_reload_empty			= fort_reload,    fort_close
+
+anm_idle_moving 			= fort_idle_moving
+anm_idle_moving_empty 		= fort_idle_moving, fort_opened
+
+anm_idle_sprint				= fort_idle_sprint
+anm_idle_sprint_empty		= fort_idle_sprint, fort_opened
+
+anm_bore					= fort_idle_bore
+anm_bore_empty				= fort_idle_bore, fort_opened
+
+aim_hud_offset_pos				= -0.108000,0.045500,0.000000
+aim_hud_offset_rot				= 0.007500,0.005000,-0.015000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.170499,0.074000,0.000000
+aim_hud_offset_rot_16x9				= 0.035000,0.057500,0.010000
+
+; w_g36.ltx
+![wpn_g36_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_g36\wpn_g36_hud.ogf
+
+hands_position				= -0.013500,-0.228999,0.292998
+hands_orientation			= 0.950000,0.950001,-6.000005
+
+hands_position_16x9				= -0.030000,-0.215499,0.233498
+hands_orientation_16x9			= 0.300001,2.999998,-4.149999
+
+item_position				= 0.002866,-0.006395,0.000780
+item_orientation			= 1.778962,0.604979,365.867584
+
+shell_point		= 0.021,0.071,0.141
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone		= wpn_body
+
+fire_point		= 0,0.075,0.646
+fire_bone      	= wpn_body
+fire_point2		= 0.0,-0.017,0.692
+fire_bone2		= wpn_body
+
+anm_show             	= g36_draw
+anm_hide             	= g36_holster
+anm_idle             	= g36_idle
+anm_idle_sprint         = g36_idle_sprint
+anm_idle_moving 			= g36_idle_moving
+anm_shots               = g36_shoot
+anm_reload              = g36_reload
+anm_idle_aim           	= g36_idle_aim
+
+anm_switch              = g36_switch_off
+anm_switch_g            = g36_switch_on
+anm_bore						= g36_idle_bore
+
+anm_hide_w_gl           = g36_holster_w_gl
+anm_show_w_gl           = g36_draw_w_gl
+anm_idle_w_gl           = g36_idle_w_gl
+anm_shots_w_gl          = g36_shoot_w_gl
+anm_reload_w_gl         = g36_reload_w_gl
+anm_idle_w_gl_aim       = g36_idle_w_gl_aim
+anm_idle_sprint_w_gl		= g36_idle_sprint_w_gl
+anm_idle_moving_w_gl		= g36_idle_moving_w_gl
+anm_bore_w_gl				= g36_idle_bore_w_gl
+
+anm_show_g         		= g36_draw_grenade
+anm_hide_g         		= g36_holster_grenade
+anm_idle_g         		= g36_idle_grenade
+anm_reload_g       		= g36_reload_grenade
+anm_idle_g_aim     		= g36_idle_grenade
+anm_shots_g        		= g36_shoot_grenade
+anm_idle_sprint_g			= g36_idle_sprint_grenade
+anm_idle_moving_g			= g36_idle_moving_grenade
+anm_bore_g					= g36_idle_bore_grenade
+
+;aim_hud_offset_pos				= -0.112000,0.034000,-0.018000
+;aim_hud_offset_rot				= 0.017500,0.002500,-0.010000
+
+aim_hud_offset_pos				= -0.112000,0.032000,-0.150000
+aim_hud_offset_rot				= 0.015000,0.002500,-0.010000
+
+
+aim_hud_offset_pos_16x9				= -0.112500,0.025000,-0.125000
+aim_hud_offset_rot_16x9				= 0.007500,0.002500,-0.010000
+
+gl_hud_offset_pos	= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot	= 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9	= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot_16x9	= 0,0,0;-0.145000,0.000000,0.000000
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+; w_gauss.ltx
+![wpn_gauss_hud]:hud_base
+zoom_hide_crosshair		= true
+attach_place_idx			= 0
+item_visual             = dynamics\weapons\wpn_gauss\wpn_gauss_hud.ogf
+
+
+hands_position				= -0.063000,-0.144499,0.096000
+hands_orientation			= -1.150000,0.150000,2.649999
+
+
+
+hands_position_16x9				= -0.032000,-0.161999,0.073500
+hands_orientation_16x9			= -1.050000,0.300000,2.949999
+
+item_position				= 0.000746,-0.000321,0.003479
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+shell_point					= 0,0,0
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+fire_point				= 0,		0.058, 0.788
+fire_bone               = wpn_body
+
+aim_hud_offset_pos		= -0.102000,0.019500,-0.148000
+aim_hud_offset_rot		= -0.002000,0.000600,-0.010000
+
+aim_hud_offset_pos_16x9     		= -0.111500,0.032500,-0.130500
+aim_hud_offset_rot_16x9     				= 0.012500,0.002500,-0.010000
+
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+anm_show						= gauss_draw
+anm_hide             	= gauss_holster
+anm_shots					= gauss_shoot
+anm_reload					= gauss_reload
+anm_bore						= gauss_idle_bore
+anm_idle             	= gauss_idle
+anm_idle_aim				= gauss_idle_aim
+anm_idle_moving 			= gauss_idle_moving
+anm_idle_sprint			= gauss_idle_sprint
+
+; w_gd5.ltx
+![grenade_gd-05_hud]:hud_base
+fire_point		= 0,0,0
+fire_bone               = wpn_body
+
+
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_grenades\wpn_gd5_hud.ogf
+
+hands_position          	= -0.044000,-0.156000,0.100000
+hands_orientation       	= -0.500000,1.000000,-2.000000
+hands_position_16x9     	= -0.044000,-0.156000,0.100000
+hands_orientation_16x9  	= -0.500000,1.000000,-2.000000
+
+
+item_position				= -0.001215,0.005992,0.000966
+item_orientation			= -359.925262,-2.224621,-7.030276
+
+
+aim_hud_offset_pos			= 0,0,0
+aim_hud_offset_rot			= 0,0,0
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+anm_hide				= f1_holster
+anm_show				= f1_draw
+anm_idle				= f1_idle
+anm_bore				= f1_idle_bore
+anm_idle_moving	 			= f1_idle_moving
+anm_idle_sprint	 			= f1_idle_sprint
+
+anm_throw_begin				= f1_throw_begin
+anm_throw_idle				= f1_throw_idle
+anm_throw				= f1_throw
+
+
+throw_point			= 0.0,0.4,0.3
+throw_dir			= 0,0,1
+third_person_throw_point_offset = -0.05,0.848,0.706
+
+; w_groza.ltx
+![wpn_groza_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual					= dynamics\weapons\wpn_groza\wpn_groza_hud.ogf
+
+hands_position				= -0.057500,-0.182500,0.254500
+hands_orientation			= -0.650000,0.599990,1.749998
+
+
+hands_position_16x9				= -0.033000,-0.188499,0.209999
+hands_orientation_16x9			= 0.400000,3.199998,0.299999
+
+;item_position				= -0.004407,0.006848,-0.002564
+;item_orientation			= -15.517174,-2.455023,362.066071
+
+item_position				= -0.006247,0.007542,-0.008760
+item_orientation			= -15.517174,-2.455023,362.066071
+
+
+shell_point					= 0.025,0.063,-0.109
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+
+fire_point		= 0,0.047,0.349
+fire_bone      	      = wpn_body
+fire_point2					= 0.0,0.003,0.321
+fire_bone2					= wpn_body
+
+anm_show             	= groza_draw
+anm_hide             	= groza_holster
+anm_idle             	= groza_idle
+anm_idle_sprint         = groza_idle_sprint
+anm_idle_moving 			= groza_idle_moving
+anm_shots               = groza_shoot
+anm_reload              = groza_reload
+anm_idle_aim           	= groza_idle_aim
+
+anm_switch              = groza_switch_off
+anm_switch_g            = groza_switch_on
+anm_bore						= groza_idle_bore
+
+anm_show_w_gl           = groza_draw
+anm_hide_w_gl           = groza_holster
+anm_idle_w_gl           = groza_idle
+anm_shots_w_gl          = groza_shoot
+anm_reload_w_gl         = groza_reload
+anm_idle_w_gl_aim       = groza_idle_aim
+anm_idle_sprint_w_gl		= groza_idle_sprint
+anm_idle_moving_w_gl		= groza_idle_moving
+anm_bore_w_gl				= groza_idle_bore
+
+anm_show_g         		= groza_draw_grenade
+anm_hide_g         		= groza_holster_grenade
+anm_idle_g          		= groza_idle_grenade
+anm_reload_g       		= groza_reload_grenade
+anm_idle_g_aim      		= groza_idle_aim_grenade
+anm_shots_g         		= groza_shoot_grenade
+anm_idle_sprint_g			= groza_idle_sprint_grenade
+anm_idle_moving_g			= groza_idle_moving_grenade
+anm_bore_g				= groza_idle_grenade
+
+
+aim_hud_offset_pos				= -0.095000,-0.028500,-0.014000
+aim_hud_offset_rot				= -0.020000,0.002500,0.007500
+aim_hud_offset_pos_16x9				= -0.118500,-0.008000,0.126500
+aim_hud_offset_rot_16x9				= 0.032500,0.020000,-0.022500
+
+gl_hud_offset_pos				= -0.029500,-0.048500,0.000000
+gl_hud_offset_rot				= -0.065000,-0.077500,0.007500
+
+gl_hud_offset_pos_16x9				= -0.054500,-0.034500,0.000000
+gl_hud_offset_rot_16x9				= -0.022500,-0.065000,-0.020000
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+; w_hpsa.ltx
+![wpn_hpsa_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.031000,-0.149000,0.002500
+;hands_orientation			= -0.500000,1.000000,1.299999
+;hands_position_16x9				= -0.014500,-0.176500,0.039000
+;hands_orientation_16x9			= -2.000000,1.949999,2.2999983
+
+item_position					= 0.000746,-0.000321,0.003479
+item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_hpsa\wpn_hpsa_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.012,0.038,0.473
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.038,0.177
+fire_bone               	= wpn_body
+
+anm_show					= hpsa_draw
+anm_show_empty				= hpsa_draw, hpsa_opened
+
+anm_hide             		= hpsa_holster
+anm_hide_empty         		= hpsa_holster, hpsa_opened
+
+anm_idle             		= hpsa_idle
+anm_idle_empty             	= hpsa_idle, hpsa_opened
+
+anm_shots					= hpsa_shoot
+anm_shot_l					= hpsa_shoot, hpsa_open
+
+anm_idle_aim				= hpsa_idle_aim
+anm_idle_aim_empty			= hpsa_idle_aim, hpsa_opened
+
+anm_reload					= hpsa_reload
+anm_reload_empty			= hpsa_reload, hpsa_close
+
+anm_idle_moving 			= hpsa_idle_moving
+anm_idle_moving_empty 		= hpsa_idle_moving, hpsa_opened
+
+anm_idle_sprint				= hpsa_idle_sprint
+anm_idle_sprint_empty		= hpsa_idle_sprint, hpsa_opened
+
+anm_bore					= hpsa_idle_bore
+anm_bore_empty				= hpsa_idle_bore, hpsa_opened
+
+
+aim_hud_offset_pos				= -0.105000,0.045000,0.003000
+aim_hud_offset_rot				= 0.005000,0.005000,-0.037500
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.165000,0.080500,0.000000
+aim_hud_offset_rot_16x9				= 0.040000,0.055000,-0.010000
+
+; w_knife.ltx
+![wpn_knife]:hud_base
+hit_power_critical_2    = 0.0, 0.0, 0.0, 0.0
+
+splash1_direction		= 0.0, -0.3, 1.0
+splash2_direction		= 0.0, 0.0, 1.0
+
+spash1_dist				= 1.2 ;0.7		; fire_distance / 2
+spash2_dist				= 1
+
+spash1_radius			= 0.5 ;0.7
+spash2_radius			= 0.25
+
+splash1_hits_count			= 3
+splash1_pervictim_hcount	= 1
+splash2_hits_count			= 2
+splash_hit_divide_factor	= 0.75
+
+![wpn_knife_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+item_position				= 0.003164,-0.002989,0.000906
+item_orientation			= 175.276352,-184.681427,-545.486328
+
+item_visual             	= dynamics\weapons\wpn_knife\wpn_knife_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0,0,0
+shell_bone              	= wpn_body
+
+fire_point						= 0.004500,0.062500,-0.178499
+fire_bone               	= knife
+
+
+anm_show			= knife_draw
+anm_show_empty			= knife_draw
+anm_hide             		= knife_holster
+anm_idle             		= knife_idle
+anm_idle_aim			= knife_idle
+anm_attack			= knife_kick_1
+anm_attack_e			= knife_kick_end1	;--remove me
+anm_attack2			= knife_kick_2
+anm_attack2_e			= knife_kick_end2 	;--remove me
+anm_idle_moving 		= knife_idle_moving
+anm_idle_sprint			= knife_idle_sprint
+anm_bore			= knife_idle_bore
+
+aim_hud_offset_pos			= -0.077000,0.022000,0.000000
+aim_hud_offset_rot			= 0.000000,0.005000,-0.015000
+
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+; w_l85.ltx
+![wpn_l85_hud]:hud_base
+zoom_hide_crosshair		= true
+attach_place_idx			= 0
+item_visual					= dynamics\weapons\wpn_l85\wpn_l85_hud.ogf
+
+hands_position				= -0.076000,-0.167000,0.237499
+hands_orientation			= -2.449999,2.899998,-3.149999
+hands_position_16x9				= -0.080000,-0.176500,0.244999
+hands_orientation_16x9			= -3.099998,3.949998,-4.449999
+
+item_position				= 0.002926,0.000089,0.001182
+item_orientation			= 1.598515,-1.348796,363.621826
+
+shell_point					= 0.02,0.06,-0.119
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+fire_point		= 0,0.054,0.469
+fire_bone      	      = wpn_body
+fire_point2					= 0.0,-0.029,0.525
+fire_bone2					= wpn_body
+
+anm_show             	= l85_draw
+anm_hide             	= l85_holster
+anm_idle             	= l85_idle
+anm_idle_sprint         = l85_idle_sprint
+anm_idle_moving 	= l85_idle_moving
+anm_shots               = l85_shoot
+anm_reload              = l85_reload
+anm_idle_aim           	= l85_idle_aim
+
+anm_switch              = l85_switch_off
+anm_switch_g            = l85_switch_on
+anm_bore						= l85_idle_bore
+
+anm_hide_w_gl           = l85_holster_w_gl
+anm_show_w_gl           = l85_draw_w_gl
+anm_idle_w_gl           = l85_idle_w_gl
+anm_shots_w_gl          = l85_shoot_w_gl
+anm_reload_w_gl         = l85_reload_w_gl
+anm_idle_w_gl_aim       = l85_idle_w_gl_aim
+anm_idle_sprint_w_gl		= l85_idle_sprint_w_gl
+anm_idle_moving_w_gl		= l85_idle_moving_w_gl
+anm_bore_w_gl				= l85_idle_bore_w_gl
+
+anm_show_g         		= l85_draw_grenade
+anm_hide_g       		  	= l85_holster_grenade
+anm_idle_g         		= l85_idle_grenade
+anm_reload_g       		= l85_reload_grenade
+anm_idle_g_aim     		= l85_idle_grenade
+anm_shots_g        		= l85_shoot_grenade
+anm_idle_sprint_g			= l85_idle_sprint_grenade
+anm_idle_moving_g			= l85_idle_moving_grenade
+anm_bore_g					= l85_idle_bore_grenade
+
+
+aim_hud_offset_pos		= -0.102000,0.019500,-0.148000
+aim_hud_offset_rot		= 0.010000,0.002500,-0.010000
+
+aim_hud_offset_pos_16x9		= -0.092500,0.019000,-0.126500
+aim_hud_offset_rot_16x9		= 0.015000,0.010000,-0.067500
+
+
+gl_hud_offset_pos			= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot			= 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9			= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot_16x9			= 0,0,0;-0.145000,0.000000,0.000000
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+; w_lr300.ltx
+![wpn_lr300_hud]:hud_base
+zoom_hide_crosshair        = true
+attach_place_idx        = 0
+item_visual                = dynamics\weapons\wpn_lr300\wpn_lr300_hud.ogf
+
+hands_position			= -0.041500,-0.170999,0.161000
+hands_orientation			= -0.550000,0.750001,0.599999
+
+hands_position_16x9				= -0.044000,-0.191999,0.135500
+hands_orientation_16x9			= 0.549999,2.399999,0.1499993
+
+item_position				= 0.003253,0.001161,-0.004648
+item_orientation			= 1.267092,-0.970740,360.237885
+
+shell_point			= 0.028,0.078,0.113
+shell_dir           = 0.0, 1.0, 0.0
+shell_bone                = wpn_body
+
+fire_point				= 0.0,0.074,0.612
+fire_bone                            = wpn_body
+fire_point2			= 0.0,-0.009,0.601
+fire_bone2                = wpn_body
+
+anm_show                = lr300_draw
+anm_hide                = lr300_holster
+anm_idle                = lr300_idle
+anm_idle_sprint         = lr300_idle_sprint
+anm_idle_moving         = lr300_idle_moving
+anm_shots               = lr300_shoot
+anm_reload              = lr300_reload
+anm_idle_aim            = lr300_idle_aim
+
+anm_switch              = lr300_switch_off 				;lr300_switch_off
+anm_switch_g            = lr300_switch_on 				;lr300_switch_on
+anm_bore                = lr300_idle_bore
+
+anm_hide_w_gl           = lr300_holster_w_gl
+anm_show_w_gl           = lr300_draw_w_gl
+anm_idle_w_gl           = lr300_idle_w_gl
+anm_shots_w_gl          = lr300_shoot_w_gl
+anm_reload_w_gl         = lr300_reload_w_gl
+anm_idle_w_gl_aim       = lr300_idle_aim_w_gl
+anm_idle_sprint_w_gl    = lr300_idle_sprint_w_gl
+anm_idle_moving_w_gl    = lr300_idle_moving_w_gl
+anm_bore_w_gl           = lr300_idle_bore_w_gl
+
+anm_show_g              = lr300_draw_grenade					;lr300_draw_grenade
+anm_hide_g              = lr300_holster_grenade				;lr300_holster_grenade
+anm_idle_g              = lr300_idle_grenade					;lr300_idle_grenade
+anm_reload_g            = lr300_reload_grenade
+anm_idle_g_aim          = lr300_idle_grenade					;lr300_idle_grenade
+anm_shots_g             = lr300_shoot_grenade
+anm_idle_sprint_g       = lr300_idle_sprint_grenade		;lr300_idle_sprint_grenade
+anm_idle_moving_g       = lr300_idle_moving_grenade		;lr300_idle_moving_grenade
+anm_bore_g              = lr300_idle_bore_grenade
+
+aim_hud_offset_pos				= -0.122500,0.010000,-0.022500
+aim_hud_offset_rot				= -0.010000,0.012500,0.007500
+
+aim_hud_offset_pos_16x9				= -0.119500,0.030000,0.029000
+aim_hud_offset_rot_16x9				= 0.012500,0.030000,-0.012504
+
+gl_hud_offset_pos       	= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot       	= 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9    	= 0,0,0;-0.130000,0.003500,0.000500
+gl_hud_offset_rot_16x9    	= 0,0,0;0.052500,0.045000,-0.010000
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+; w_mp5.ltx
+![wpn_mp5_hud]
+zoom_hide_crosshair     = true
+attach_place_idx        = 0
+item_visual             = dynamics\weapons\wpn_mp5\wpn_mp5_hud.ogf
+
+hands_position				= -0.106500,-0.162000,0.113001
+hands_orientation			= -6.700007,-0.800001,-5.400002
+hands_position_16x9				= -0.100500,-0.191500,0.135500
+hands_orientation_16x9			= -3.999999,3.199998,-6.000006
+
+item_position				= 0.014173,-0.001619,-0.004513
+item_orientation			= 4.899572,0.078592,366.138245
+
+shell_point             = 0.021,0.099,0.286
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone              = wpn_body
+
+fire_point				= 0,0.068,0.439
+fire_bone               = wpn_body
+fire_point2			= -0.030000,0.074500,-0.037000
+fire_bone2                = wpn_body
+
+anm_show                     = mp5_draw
+anm_hide                     = mp5_holster
+anm_idle                     = mp5_idle
+anm_idle_sprint         = mp5_idle_sprint
+anm_idle_moving         = mp5_idle_moving
+anm_shots               = mp5_shoot
+anm_reload              = mp5_reload
+anm_idle_aim            = mp5_idle_aim
+anm_bore                = mp5_idle_bore
+
+;anm_switch              = mp5_switch_off ;mp5_switch_off
+;anm_switch_g            = mp5_switch_on ;mp5_switch_on
+
+
+;anm_hide_w_gl           = mp5_holster_w_gl
+;anm_show_w_gl           = mp5_draw_w_gl
+;anm_idle_w_gl           = mp5_idle_w_gl
+;anm_shots_w_gl          = mp5_shoot_w_gl
+;anm_reload_w_gl         = mp5_reload_w_gl
+;anm_idle_w_gl_aim       = mp5_idle_aim_w_gl
+;anm_idle_sprint_w_gl                = mp5_idle_sprint_w_gl
+;anm_idle_moving_w_gl                = mp5_idle_moving_w_gl
+;anm_bore_w_gl                                = mp5_idle_bore_w_gl
+
+;anm_show_g                         = mp5_draw_w_gl;mp5_draw_grenade
+;anm_hide_g                         = mp5_holster_w_gl;mp5_holster_grenade
+;anm_idle_g                         = mp5_idle_w_gl;mp5_idle_grenade
+;anm_reload_g                       = mp5_reload_grenade
+;anm_idle_g_aim                     = mp5_idle_aim_w_gl;mp5_idle_grenade
+;anm_shots_g                        = mp5_shoot_grenade
+;anm_idle_sprint_g                        = mp5_idle_sprint_w_gl;mp5_idle_sprint_grenade
+;anm_idle_moving_g                        = mp5_idle_moving_w_gl;mp5_idle_moving_grenade
+;anm_bore_g                                        = mp5_idle_bore_grenade
+
+
+aim_hud_offset_pos				= -0.080500,0.002500,-0.018000
+aim_hud_offset_rot				= -0.035000,-0.032500,0.010000
+
+aim_hud_offset_pos_16x9				= -0.088000,0.037500,0.029000
+aim_hud_offset_rot_16x9				= 0.035000,0.015000,-0.017500
+
+gl_hud_offset_pos       	= 0,0,0;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot       	= 0,0,0;-0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9    	= 0,0,0;-0.130000,0.003500,0.000500
+gl_hud_offset_rot_16x9    	= 0,0,0;0.052500,0.045000,-0.010000
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+; w_pb.ltx
+![wpn_pb_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.082500,-0.130500,0.002500
+;hands_orientation			= -4.399999,-0.350000,1.949998
+;hands_position_16x9				= -0.006500,-0.161000,0.039000
+;hands_orientation_16x9			= -1.350000,0.600000,1.599999
+
+item_position					= 0.000746,-0.000321,0.003479
+item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_pb\wpn_pb_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.013,0.04,0.468
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.029,0.284
+fire_bone               	= wpn_body
+
+anm_show						= pb_draw
+anm_show_empty					= pb_draw, pb_opened
+
+anm_hide             			= pb_holster
+anm_hide_empty             		= pb_holster, pb_opened
+
+anm_idle             			= pb_idle
+anm_idle_empty             		= pb_idle, pb_opened
+
+anm_shots						= pb_shoot
+anm_shot_l						= pb_shoot, pb_open
+
+anm_idle_aim					= pb_idle_aim
+anm_idle_aim_empty				= pb_idle_aim, pb_opened
+
+anm_reload						= pb_reload
+anm_reload_empty				= pb_reload, pb_close
+
+anm_idle_moving 				= pb_idle_moving
+anm_idle_moving_empty 			= pb_idle_moving, pb_opened
+
+anm_idle_sprint					= pb_idle_sprint
+anm_idle_sprint_empty			= pb_idle_sprint, pb_opened
+
+anm_bore						= pb_idle_bore
+anm_bore_empty					= pb_idle_bore, pb_opened
+
+aim_hud_offset_pos				= -0.106000,0.034000,0.003000
+aim_hud_offset_rot				= -0.015000,0.002500,-0.047500
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.167000,0.065500,0.000000
+aim_hud_offset_rot_16x9				= 0.015000,0.055000,-0.022500
+
+; w_pm.ltx
+![wpn_pm_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.025000,-0.155500,0.002500
+;hands_orientation			= 0.450000,1.300000,0.749999
+;hands_position_16x9				= 0.007500,-0.168500,0.039000
+;hands_orientation_16x9			= 0.700000,1.699999,2.8499983
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000481,-0.000050,-0.004011
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_pm\wpn_pm_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.013,0.046,0.463
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.045,0.142
+fire_bone               	= wpn_body
+
+anm_show						= pm_draw
+anm_show_empty					= pm_draw, pm_opened
+
+anm_hide             			= pm_holster
+anm_hide_empty             		= pm_holster
+
+anm_idle             			= pm_idle
+anm_idle_empty             		= pm_idle, pm_opened
+
+anm_shots						= pm_shoot
+anm_shot_l						= pm_shoot, pm_open
+
+anm_idle_aim					= pm_idle_aim
+anm_idle_aim_empty				= pm_idle_aim, pm_opened
+
+anm_reload						= pm_reload
+anm_reload_empty				= pm_reload, pm_close
+
+anm_idle_moving 				= pm_idle_moving
+anm_idle_moving_empty 			= pm_idle_moving, pm_opened
+
+anm_idle_sprint					= pm_idle_sprint
+anm_idle_sprint_empty			= pm_idle_sprint, pm_opened
+
+anm_bore						= pm_idle_bore
+anm_bore_empty					= pm_idle_bore, pm_opened
+
+aim_hud_offset_pos				= -0.106000,0.036500,0.000000
+aim_hud_offset_rot				= -0.002500,0.005000,-0.035000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.165000,0.075000,-0.001500
+aim_hud_offset_rot_16x9				= 0.032500,0.055000,-0.025000
+
+; w_rg6.ltx
+![wpn_rg-6_hud]:hud_base
+zoom_hide_crosshair		= true
+
+hands_position				= -0.013000,-0.176999,0.118000
+hands_orientation			= 6.250005,-0.649999,0.000000
+hands_position_16x9				= -0.029000,-0.186000,0.112000
+hands_orientation_16x9			= 1.699999,0.000001,0.600000
+
+item_position				= -0.003178,0.002246,0.000581
+item_orientation			= -181.191742,180.482727,-180.330688
+
+shell_point					= 0,0,0
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+
+fire_point				= -0.0,0.0,0.513
+fire_bone               = wpn_body
+
+attach_place_idx		= 0
+item_visual					= dynamics\weapons\wpn_rg6\wpn_rg6_hud.ogf
+
+anm_show			      	= rg6_draw
+anm_hide			      	= rg6_holster
+anm_idle			      	= rg6_idle
+anm_idle_aim			   = rg6_idle_aim
+anm_idle_moving		   = rg6_idle_moving
+anm_idle_sprint		   = rg6_idle_sprint
+anm_open				= rg6_reload_start
+anm_add_cartridge			= rg6_reload
+anm_close					= rg6_reload_end
+anm_shots					= rg6_shoot
+anm_bore						= rg6_idle_bore
+
+
+aim_hud_offset_pos				= -0.125001,0.006000,0.156500
+aim_hud_offset_rot				= 0.015000,0.085000,-0.002500
+aim_hud_offset_pos_16x9				= -0.091000,0.000500,0.120000
+aim_hud_offset_rot_16x9				= -0.010000,-0.010000,0.000000
+
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+; w_rgd5.ltx
+![grenade_rgd5_hud]:hud_base
+fire_point		= 0,0,0
+fire_bone               = wpn_body
+
+
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_grenades\wpn_rgd5_hud.ogf
+
+hands_position          	= -0.044000,-0.156000,0.100000
+hands_orientation       	= -0.500000,1.000000,-2.000000
+hands_position_16x9     	= -0.044000,-0.156000,0.100000
+hands_orientation_16x9  	= -0.500000,1.000000,-2.000000
+
+item_position				= 0.004407,0.000254,-0.002439
+item_orientation			= -359.925262,-2.224621,-7.030276
+
+;item_position				= -0.001215,0.005992,0.000966
+;item_orientation			= -359.925262,-2.224621,-7.030276
+
+
+aim_hud_offset_pos			= 0,0,0
+aim_hud_offset_rot			= 0,0,0
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+anm_hide				= f1_holster
+anm_show				= f1_draw
+anm_idle				= f1_idle
+anm_bore				= f1_idle_bore
+anm_idle_moving	 			= f1_idle_moving
+anm_idle_sprint	 			= f1_idle_sprint
+
+
+anm_throw_begin				= f1_throw_begin
+anm_throw_idle				= f1_throw_idle
+anm_throw				= f1_throw
+
+
+throw_point			= 0.0,0.4,0.3
+throw_dir			= 0,0,1
+third_person_throw_point_offset = -0.05,0.848,0.706
+
+; w_rpg7.ltx
+![wpn_rpg7_hud]:hud_base
+attach_place_idx			= 0
+item_visual                   		= dynamics\weapons\wpn_rpg7\wpn_rpg7_hud
+
+fire_point				= -0.020000,0.200500,0.145003
+fire_bone               = wpn_body
+
+
+hands_position						= 0.020500,-0.206999,0.261999
+hands_orientation					= 3.349998,2.599999,-0.050000
+hands_position_16x9				= 0.020500,-0.165999,0.209500
+hands_orientation_16x9			= 3.649998,1.050001,-0.050000
+
+item_position						= 0,0,0
+item_orientation					= 0,0,0
+
+aim_hud_offset_pos				= -0.102000,0.019500,-0.148000
+aim_hud_offset_rot				= 0.010000,0.002500,-0.010000
+
+aim_hud_offset_pos_16x9     	= -0.05000,-0.022500,-0.130500
+aim_hud_offset_rot_16x9     	= 0.012500,-0.012500,-0.010000
+
+gl_hud_offset_pos					= 0,0,0
+gl_hud_offset_rot					= 0,0,0
+
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+
+anm_show								= rpg7_draw
+anm_hide								= rpg7_holster
+anm_reload							= rpg7_reload
+anm_shots							= rpg7_shoot
+anm_idle								= rpg7_idle
+anm_idle_sprint							= rpg7_idle
+anm_idle_aim						= rpg7_idle_aim
+anm_idle_moving					= rpg7_idle_moving
+anm_bore								= rpg7_idle_bore
+
+; w_sig220.ltx
+![wpn_sig220_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= 0.002000,-0.160000,0.002500
+;hands_orientation			= 1.849999,1.849999,1.099999
+;hands_position_16x9				= 0.001500,-0.176500,0.039000
+;hands_orientation_16x9			= -0.300000,1.799999,3.899997
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000354,0.000083,-0.007507
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_sig220\wpn_sig220_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.011,0.049,0.483
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.046,0.171
+fire_bone               	= wpn_body
+
+anm_show						= sig220_draw
+anm_show_empty					= sig220_draw, sig220_opened
+
+anm_hide             			= sig220_holster
+anm_hide_empty             		= sig220_holster, sig220_opened
+
+anm_idle             			= sig220_idle
+anm_idle_empty             		= sig220_idle, sig220_opened
+
+anm_shots						= sig220_shoot
+anm_shot_l						= sig220_shoot, sig220_open
+
+anm_idle_aim					= sig220_idle_aim
+anm_idle_aim_empty				= sig220_idle_aim, sig220_opened
+
+anm_reload						= sig220_reload
+anm_reload_empty				= sig220_reload, sig220_close
+
+anm_idle_moving 				= sig220_idle_moving
+anm_idle_moving_empty 			= sig220_idle_moving, sig220_opened
+
+anm_idle_sprint					= sig220_idle_sprint
+anm_idle_sprint_empty			= sig220_idle_sprint, sig220_opened
+
+anm_bore						= sig220_idle_bore
+anm_bore_empty					= sig220_idle_bore, sig220_opened
+
+
+aim_hud_offset_pos				= -0.109500,0.033500,0.009000
+aim_hud_offset_rot				= 0.000000,0.007500,-0.027500
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.168999,0.067000,-0.010000
+aim_hud_offset_rot_16x9				= 0.030000,0.057500,-0.020000
+
+; w_sig550.ltx
+![wpn_sig550_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_sig550\wpn_sig550_hud
+
+hands_position			= -0.050000,-0.151000,0.092500
+hands_orientation		= -0.500000,-0.750000,-2.000000
+
+hands_position_16x9     = -0.044000,-0.156000,0.100000
+hands_orientation_16x9  = -0.500000,1.000000,-2.000000
+
+item_position		= 0.002866,-0.006395,0.000780
+item_orientation	= 0.642900,0.520562,361.843872
+
+shell_point		= 0.028,0.075,0.156
+shell_dir       = 0.0, 1.0, 0.0
+shell_bone		= wpn_body
+
+fire_point		= 0,0.056,0.746
+fire_bone      	= wpn_body
+fire_point2		= 0.0,-0.028,0.678
+fire_bone2		= wpn_body
+
+anm_show             	= sig550_draw
+anm_hide             	= sig550_holster
+anm_idle             	= sig550_idle
+anm_idle_sprint         = sig550_idle_sprint
+anm_idle_moving 	= sig550_idle_moving
+anm_shots               = sig550_shoot
+anm_reload              = sig550_reload
+anm_idle_aim           	= sig550_idle_aim
+
+anm_switch              = sig550_switch_off
+anm_switch_g            = sig550_switch_on
+anm_bore		= sig550_idle_bore
+
+anm_hide_w_gl           = sig550_holster_w_gl
+anm_show_w_gl           = sig550_draw_w_gl
+anm_idle_w_gl           = sig550_idle_w_gl
+anm_shots_w_gl          = sig550_shoot_w_gl
+anm_reload_w_gl         = sig550_reload_w_gl
+anm_idle_w_gl_aim       = sig550_idle_w_gl_aim
+anm_idle_sprint_w_gl	= sig550_idle_sprint_w_gl
+anm_idle_moving_w_gl	= sig550_idle_moving_w_gl
+anm_bore_w_gl		= sig550_idle_bore_w_gl
+
+anm_show_g         	= sig550_draw_grenade
+anm_hide_g         	= sig550_holster_grenade
+anm_idle_g         	= sig550_idle_grenade
+anm_reload_g       	= sig550_reload_grenade
+anm_idle_g_aim     	= sig550_idle_grenade
+anm_shots_g        	= sig550_shoot_grenade
+anm_idle_sprint_g	= sig550_idle_sprint_grenade
+anm_idle_moving_g	= sig550_idle_moving_grenade
+anm_bore_g		= sig550_idle_bore_grenade
+
+;aim_hud_offset_pos				= -0.112000,0.034000,-0.018000
+;aim_hud_offset_rot				= 0.017500,0.002500,-0.010000
+
+aim_hud_offset_pos				= -0.106000,0.025000,-0.047000
+aim_hud_offset_rot				= -0.015000,0.002500,-0.010000
+
+
+aim_hud_offset_pos_16x9				= -0.112000,0.031500,0.000500
+aim_hud_offset_rot_16x9				= 0.015000,0.002500,-0.010000
+
+gl_hud_offset_pos	= 0,0,0
+gl_hud_offset_rot	= 0,0,0
+;gl_hud_offset_pos	= -0.053000,-0.059000,0.000000
+;gl_hud_offset_rot	= -0.145000,0.000000,0.000000
+
+gl_hud_offset_pos_16x9	= 0,0,0
+gl_hud_offset_rot_16x9	= 0,0,0
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+; w_spas12.ltx
+![wpn_spas12_hud]:hud_base
+
+shell_point			= 0.028,0.052,0.0147
+shell_dir                     	= 0.0, 1.0, 0.0
+shell_bone			= wpn_body
+
+
+fire_point		= 0, 0.051, 0.808
+fire_bone			= wpn_body
+
+
+attach_place_idx		= 0
+item_visual                   	= dynamics\weapons\wpn_spas12\wpn_spas12_hud.ogf
+
+hands_position				= -0.131000,-0.084001,0.197000
+hands_orientation			= 1.950000,-0.999998,3.349998
+
+
+
+hands_position_16x9				= -0.122000,-0.142500,0.234499
+hands_orientation_16x9			= 3.149998,1.050001,2.349999
+
+item_position				= 0.001394,0.007643,0.003674
+item_orientation			= -0.194673,-0.83 9747,-0.116095
+
+aim_hud_offset_pos				= -0.098000,0.051000,0.000000
+aim_hud_offset_rot				= 0.017500,0.025000,-0.022500
+
+aim_hud_offset_pos_16x9				= -0.107500,0.119000,0.000000
+aim_hud_offset_rot_16x9				= 0.052500,0.045000,-0.045000
+;aim_hud_offset_pos_16x9				= -0.046500,0.119000,0.000000
+;aim_hud_offset_rot_16x9				= 0.052500,0.010000,-0.015000
+
+anm_show						= spas12_draw
+anm_hide						= spas12_holster
+anm_idle						= spas12_idle
+anm_idle_aim				= spas12_idle_aim
+anm_idle_moving			= spas12_idle_moving
+anm_idle_sprint			= spas12_idle_sprint
+anm_bore						= spas12_idle_bore
+
+anm_shots					= spas12_shoot
+
+anm_open						= spas12_reload_start
+anm_add_cartridge			= spas12_reload
+anm_close					= spas12_reload_end
+
+anm_reload = spas12_reload
+
+; w_svd.ltx
+![wpn_svd_hud]:hud_base
+zoom_hide_crosshair		= true
+attach_place_idx			= 0
+item_visual					= dynamics\weapons\wpn_svd\wpn_svd_hud
+
+
+hands_position				= -0.063500,-0.150999,0.099000
+hands_orientation			= -0.049999,0.750000,1.550001
+
+hands_position_16x9				= -0.058500,-0.165999,0.045000
+hands_orientation_16x9			= 0.650000,1.200000,0.800001
+
+;hands_position_16x9				= -0.045500,-0.161499,-0.026500
+;hands_orientation_16x9			= 3.299998,4.249998,0.800001
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+shell_point					= 0.025,0.055,0.221
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+fire_point		= 0,0.043,1.002
+fire_bone               = wpn_body
+
+aim_hud_offset_pos				= -0.052500,0.016499,-0.123000
+aim_hud_offset_rot				= 0.000000,0.000000,0.000000
+
+aim_hud_offset_pos_16x9				= -0.053500,0.024000,-0.055500
+aim_hud_offset_rot_16x9				= 0.000000,0.000000,0.000000
+
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+anm_show						= svd_draw
+anm_hide             	= svd_holster
+anm_shots					= svd_shoot
+anm_reload					= svd_reload
+anm_bore						= svd_idle_bore
+anm_idle             	= svd_idle
+anm_idle_aim				= svd_idle_aim
+anm_idle_moving 			= svd_idle_moving
+anm_idle_sprint			= svd_idle_moving
+
+! w_svu.ltx
+![wpn_svu_hud]:hud_base
+zoom_hide_crosshair		= true
+attach_place_idx		= 0
+item_visual             = dynamics\weapons\wpn_svu\wpn_svu_hud
+
+
+hands_position				= -0.044500,-0.209998,0.273998
+hands_orientation			= 1.800001,-0.600001,0.200002
+
+hands_position_16x9				= 0.005000,-0.227498,0.332498
+hands_orientation_16x9			= 3.649998,2.150000,-0.250000
+
+item_position			= 0,0,0
+item_orientation		= 0,0,0
+
+shell_point				= 0.025,0.05,0.124
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone				= wpn_body
+
+fire_point              = 0.0,0.043,0.495
+fire_bone               = wpn_body
+
+aim_hud_offset_pos				= -0.071000,0.031999,-0.103000
+aim_hud_offset_rot				= -0.002500,0.020000,0.000000
+
+aim_hud_offset_pos_16x9				= -0.143500,0.024000,-0.120500
+aim_hud_offset_rot_16x9				= -0.005000,-0.005000,0.000000
+
+gl_hud_offset_pos		= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+anm_show						= svu_draw
+anm_hide             	= svu_holster
+anm_shots					= svu_shoot
+anm_reload					= svu_reload
+anm_bore						= svu_idle_bore
+anm_idle             	= svu_idle
+anm_idle_aim				= svu_idle_aim
+anm_idle_moving 			= svu_idle_moving
+anm_idle_sprint			= svu_idle_moving
+
+; w_toz34.ltx
+![wpn_toz34_hud]:hud_base
+zoom_hide_crosshair				= true
+
+hands_position				= -0.144001,-0.129499,0.039500
+hands_orientation			= 0.399970,0.399999,-2.000002
+
+hands_position_16x9				= -0.147500,-0.138500,-0.004000
+hands_orientation_16x9			= 0.500000,1.350000,-5.150002
+
+item_position				= -0.001402,0.000506,0.000837
+item_orientation			= -200.454514,152.486038,-179.781982
+
+shell_point							= 0,0,0
+shell_dir                     = 0.0, 1.0, 0.0
+shell_bone							= wpn_body
+
+fire_point							= 0, 0.026, 0.893
+fire_bone                     = wpn_body
+
+attach_place_idx					= 0
+item_visual               		= dynamics\weapons\wpn_toz34\wpn_toz34_hud.ogf
+
+anm_show_0                    = toz_draw
+anm_show_1                    = toz_draw
+anm_show_2                    = toz_draw
+
+anm_hide_0		            		= toz_holster
+anm_hide_1		            		= toz_holster
+anm_hide_2		            		= toz_holster
+
+anm_idle_0		            	= toz_idle
+anm_idle_1		            	= toz_idle
+anm_idle_2		            	= toz_idle
+
+anm_idle_aim_0			         = toz_idle_aim
+anm_idle_aim_1			         = toz_idle_aim
+anm_idle_aim_2			         = toz_idle_aim
+
+anm_idle_moving_0		         = toz_idle_moving
+anm_idle_moving_1		         = toz_idle_moving
+anm_idle_moving_2		         = toz_idle_moving
+
+anm_idle_sprint_0		         = toz_idle_sprint
+anm_idle_sprint_1		         = toz_idle_sprint
+anm_idle_sprint_2		         = toz_idle_sprint
+
+anm_reload_1				= toz_reload_l
+anm_reload_2				= toz_reload_lr
+
+anm_shot_1				= toz_shoot
+anm_shot_2				= toz_shoot
+
+anm_bore_0								= toz_idle_bore
+anm_bore_1								= toz_idle_bore
+anm_bore_2								= toz_idle_bore
+
+aim_hud_offset_pos				= -0.084500,0.024000,0.026000
+aim_hud_offset_rot				= -0.002500,-0.000000,0.095000
+
+aim_hud_offset_pos_16x9				= -0.072000,0.030000,-0.008500
+aim_hud_offset_rot_16x9				= 0.015000,-0.000000,-0.007500
+
+; w_usp45.ltx
+![wpn_usp_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.022500,-0.159500,0.002500
+;hands_orientation			= 0.350000,1.300000,1.599999
+;hands_position_16x9				= 0.006000,-0.176500,0.039000
+;hands_orientation_16x9			= 0.049999,1.500000,2.949998
+
+item_position					= 0.000746,-0.000321,0.003479
+item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_visual             	= dynamics\weapons\wpn_usp45\wpn_usp45_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.015,0.048,0.481
+shell_bone              	= wpn_body
+
+fire_point			= 0,0.048,0.163
+fire_bone               	= wpn_body
+
+anm_show						= usp45_draw
+anm_show_empty					= usp45_draw, usp45_opened
+
+anm_hide             			= usp45_holster
+anm_hide_empty             		= usp45_holster, usp45_opened
+
+anm_idle             			= usp45_idle
+anm_idle_empty             		= usp45_idle, usp45_opened
+
+anm_shots						= usp45_shoot
+anm_shot_l						= usp45_shoot, usp45_open
+
+anm_idle_aim					= usp45_idle_aim
+anm_idle_aim_empty				= usp45_idle_aim, usp45_opened
+
+anm_reload						= usp45_reload
+anm_reload_empty				= usp45_reload, usp45_close
+
+anm_idle_moving 				= usp45_idle_moving
+anm_idle_moving_empty 			= usp45_idle_moving, usp45_opened
+
+anm_idle_sprint					= usp45_idle_sprint
+anm_idle_sprint_empty			= usp45_idle_sprint, usp45_opened
+
+anm_bore						= usp45_idle_bore
+anm_bore_empty					= usp45_idle_bore, usp45_opened
+
+aim_hud_offset_pos				= -0.106500,0.032000,0.000000
+aim_hud_offset_rot				= -0.000000,0.007500,-0.035000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.166000,0.059000,0.000000
+aim_hud_offset_rot_16x9				= 0.025000,0.055000,0.002500
+
+; w_val.ltx
+![wpn_val_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_val\wpn_val_hud.ogf
+
+
+hands_position				= -0.033000,-0.194000,0.311998
+hands_orientation			= -2.100000,0.050000,-2.000000
+
+hands_position_16x9				= -0.022000,-0.215000,0.311998
+hands_orientation_16x9			= 1.599999,2.099999,-2.000000
+
+
+aim_hud_offset_pos_16x9				= -0.110000,0.048500,-0.018000
+aim_hud_offset_rot_16x9				= 0.017500,0.005000,-0.027500
+
+aim_hud_offset_pos				= -0.109500,0.041000,-0.035500
+aim_hud_offset_rot				= -0.017500,-0.042500,-0.022500
+
+aim_hud_offset_pos_16x9				= -0.143000,0.068500,-0.018000
+aim_hud_offset_rot_16x9				= 0.012500,0.020000,-0.010000
+
+
+
+item_position				= 0.007119,0.019630,0.009658
+item_orientation			= -15.646272,-3.230760,364.546112
+
+shell_point					= 0.02,0.04,0.131
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+fire_point		= 0,0.037,0.626
+fire_bone      	      = wpn_body
+fire_point2					= -0.014000,0.010000,-0.037000
+fire_bone2					= wpn_body
+
+anm_show             	= val_draw
+anm_hide             	= val_holster
+anm_idle             	= val_idle
+anm_idle_sprint         = val_idle_sprint
+anm_idle_moving 			= val_idle_moving
+anm_shots               = val_shoot
+anm_reload              = val_reload
+anm_idle_aim           	= val_idle_aim
+anm_bore						= val_idle_bore
+
+
+gl_hud_offset_pos	= -0.053000,-0.059000,0.000000
+gl_hud_offset_rot	= -0.145000,0.000000,0.000000
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+
+grenade_bone            = grenade
+
+; w_vintorez.ltx
+![wpn_vintorez_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual		= dynamics\weapons\wpn_vintorez\wpn_vintorez_hud.ogf
+
+
+hands_position				= -0.053000,-0.196500,0.250499
+hands_orientation			= 0.300000,1.849999,-0.000001
+
+
+hands_position_16x9				= -0.047500,-0.203500,0.194999
+hands_orientation_16x9			= 0.800000,1.650000,-2.500000
+
+aim_hud_offset_pos	= -0.112000,0.029500,-0.118000
+aim_hud_offset_rot	= 0.010000,0.002500,-0.010000
+
+aim_hud_offset_pos_16x9		= -0.092000,0.0149500,-0.038000
+aim_hud_offset_rot_16x9		= 0.010000,0.002500,-0.010000
+
+
+
+item_position				= 0.007119,0.019630,0.009658
+item_orientation			= -15.646272,-3.230760,364.546112
+
+shell_point					= 0.023,0.042,0.129
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone					= wpn_body
+
+fire_point		= 0,0.037,0.626
+fire_bone      	      = wpn_body
+fire_point2					= -0.014000,0.010000,-0.037000
+fire_bone2					= wpn_body
+
+anm_show             	= vintorez_draw
+anm_hide             	= vintorez_holster
+anm_idle             	= vintorez_idle
+anm_idle_sprint         = vintorez_idle_sprint
+anm_idle_moving 			= vintorez_idle_moving
+anm_shots               = vintorez_shoot
+anm_reload              = vintorez_reload
+anm_idle_aim           	= vintorez_idle_aim
+
+;anm_switch              = vintorez_switch_off
+;anm_switch_g            = vintorez_switch_on
+anm_bore						= vintorez_idle_bore
+
+;anm_hide_w_gl           = vintorez_holster_w_gl
+;anm_show_w_gl           = vintorez_draw_w_gl
+;anm_idle_w_gl           = vintorez_idle_w_gl
+;anm_shots_w_gl          = vintorez_shoot_w_gl
+;anm_reload_w_gl         = vintorez_reload_w_gl
+;anm_idle_w_gl_aim       = vintorez_idle_w_gl_aim
+;anm_idle_sprint_w_gl		= vintorez_idle_sprint_w_gl
+;anm_idle_moving_w_gl		= vintorez_idle_moving_w_gl
+;anm_bore_w_gl				= vintorez_idle_bore
+
+;anm_show_g         	   = vintorez_draw_grenade
+;anm_hide_g         	   = vintorez_holster_grenade
+;anm_idle_g         	   = vintorez_idle_grenade
+;anm_reload_g       	   = vintorez_reload_grenade
+;anm_idle_g_aim     	   = vintorez_idle_grenade
+;anm_shots_g        	   = vintorez_shoot_grenade
+;anm_idle_sprint_g			= vintorez_idle_sprint_grenade
+;anm_idle_moving_g			= vintorez_idle_moving_grenade
+;anm_bore_g					= vintorez_idle_bore
+
+
+
+gl_hud_offset_pos	= -0.053000,-0.059000,0.000000
+gl_hud_offset_rot	= -0.145000,0.000000,0.000000
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+grenade_bone            = grenade
+
+; w_walther.ltx
+![wpn_walther_hud]:hud_base
+zoom_hide_crosshair			= true
+
+
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9				= 0.033000,-0.189500,0.039000
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+
+
+;hands_position				= -0.026000,-0.155000,0.016000
+;hands_orientation			= -0.500000,1.000000,-1.300001
+;hands_position_16x9				= 0.007000,-0.171500,0.039000
+;hands_orientation_16x9			= 0.700000,1.250000,2.099998
+
+;item_position					= 0.000746,-0.000321,0.003479
+;item_orientation				= 1.239378,-0.134046,-2.052052
+
+item_position				= 0.000605,-0.000185,-0.000516
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+
+item_visual             	= dynamics\weapons\wpn_walter99\wpn_walter99_hud.ogf
+attach_place_idx				= 0
+
+shell_point						= 0.009,0.043,0.469
+shell_bone              	= wpn_body
+
+fire_point					= 0,0.04,0.15
+fire_bone               	= wpn_body
+
+anm_show					= walter99_draw
+anm_show_empty				= walter99_draw, walter99_opened
+
+anm_hide             		= walter99_holster
+anm_hide_empty             	= walter99_holster, walter99_opened
+
+anm_idle             		= walter99_idle
+anm_idle_empty             	= walter99_idle, walter99_opened
+
+anm_shots					= walter99_shoot
+anm_shot_l					= walter99_shoot, walter99_open
+
+anm_idle_aim				= walter99_idle_aim
+anm_idle_aim_empty			= walter99_idle_aim, walter99_opened
+
+anm_reload					= walter99_reload
+anm_reload_empty			= walter99_reload, walter99_close
+
+anm_idle_moving 			= walter99_idle_moving
+anm_idle_moving_empty 		= walter99_idle_moving, walter99_opened
+
+anm_idle_sprint				= walter99_idle_sprint
+anm_idle_sprint_empty		= walter99_idle_sprint, walter99_opened
+
+anm_bore					= walter99_idle_bore
+anm_bore_empty				= walter99_idle_bore, walter99_opened
+
+
+aim_hud_offset_pos				= -0.109500,0.031500,0.000000
+aim_hud_offset_rot				= -0.012500,0.007500,-0.030000
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+aim_hud_offset_pos_16x9				= -0.171499,0.057000,0.000000
+aim_hud_offset_rot_16x9				= 0.017500,0.057500,0.022500
+
+; w_wincheaster1300.ltx
+![wpn_winchester1300_hud]:hud_base
+
+shell_point			= 0.02,0.072,0.228
+shell_dir                     	= 0.0, 1.0, 0.0
+shell_bone			= wpn_body
+
+
+fire_point		= 0, 0.075, 0.937
+fire_bone			= wpn_body
+
+
+attach_place_idx		= 0
+item_visual                   	= dynamics\weapons\wpn_winchester1300\wpn_winchester1300_hud
+
+hands_position				= -0.119500,-0.120500,0.185001
+hands_orientation			= 1.050001,1.700001,3.449997
+
+
+
+hands_position_16x9				= -0.131500,-0.138500,0.187499
+hands_orientation_16x9			= 1.699999,2.999999,3.449998
+
+item_position				= 0.003519,0.010573,-0.003368
+item_orientation			= 0.045015,1.047468,0.056850
+
+aim_hud_offset_pos				= -0.110000,0.093500,0.000000
+aim_hud_offset_rot				= 0.042500,0.012500,-0.02500
+
+aim_hud_offset_pos_16x9				= -0.100500,0.115500,0.000000
+aim_hud_offset_rot_16x9				= 0.067500,0.022500,-0.017500
+;aim_hud_offset_pos_16x9				= -0.044000,0.077000,0.000000
+;aim_hud_offset_rot_16x9				= 0.032500,0.002500,0.000000
+
+anm_show			= winchester1300_draw
+anm_hide			= winchester1300_holster
+anm_idle			= winchester1300_idle
+anm_idle_aim			= winchester1300_idle_aim
+anm_idle_moving			= winchester1300_idle_moving
+anm_idle_sprint			= winchester1300_idle_sprint
+anm_bore			= winchester1300_idle_bore
+
+anm_shots			= winchester1300_shoot
+
+anm_open			= winchester1300_reload_start
+anm_add_cartridge		= winchester1300_reload
+anm_close			= winchester1300_reload_end
