@@ -259,6 +259,11 @@ player_hud_section	= actor_hud_01
 
 
 ; w_abakan.ltx
+![wpn_abakan]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore		= weapons\abakan_bore, 0.7
 
 ![wpn_abakan_hud]:hud_base
 zoom_hide_crosshair        = true
@@ -334,6 +339,12 @@ lean_hud_offset_pos        = 0,0,0
 lean_hud_offset_rot        = 0,0,0
 
 ; w_ak74.ltx
+![wpn_ak74]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore		= weapons\ak74_bore, 0.7
+
 ![wpn_ak74_hud]:hud_base
 zoom_hide_crosshair        = true
 attach_place_idx        = 0
@@ -407,6 +418,12 @@ lean_hud_offset_pos        = 0,0,0
 lean_hud_offset_rot        = 0,0,0
 
 ; w_ak74u.ltx
+![wpn_ak74u]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore		= weapons\ak74_bore, 0.7
+
 ![wpn_ak74u_hud]:hud_base
 zoom_hide_crosshair        = true
 attach_place_idx        = 0
@@ -479,6 +496,13 @@ lean_hud_offset_pos        = 0,0,0
 lean_hud_offset_rot        = 0,0,0
 
 ; w_beretta.ltx
+![wpn_beretta]
+snd_reload						= weapons\beretta_reload, 0.8
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\mp5_bore
+snd_bore1				= weapons\draw_silent
+
 ![wpn_beretta_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -542,6 +566,7 @@ aim_hud_offset_rot_16x9				= 0.037500,0.055000,0.002500
 
 ; w_binoc.ltx
 ![wpn_binoc_hud]:hud_base
+!shell_point
 zoom_hide_crosshair			= true
 
 hands_position				= -0.008000,-0.244998,0.371497
@@ -579,6 +604,8 @@ lean_hud_offset_rot			= 0,0,0
 ![wpn_bm16]
 fire_point              = 0.000000,0.136000,0.390000     ;r
 fire_point2             = 0.000000,0.136000,0.390000		;l
+snd_reload			            = weapons\bm16_reload_lr		;reload both
+snd_reload_1		            = weapons\bm16_reload_l		;reload left
 
 ![wpn_bm16_hud]:hud_base
 zoom_hide_crosshair				= true
@@ -686,6 +713,9 @@ throw_point				= 0.0,0.4,0.3
 throw_dir				= 0,0,1
 
 ; w_colt1911.ltx
+![wpn_colt1911]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_colt1911_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -750,6 +780,9 @@ aim_hud_offset_pos_16x9				= -0.167499,0.065000,0.000000
 aim_hud_offset_rot_16x9				= 0.027500,0.055000,0.025000
 
 ; w_desert_eagle.ltx
+![wpn_desert_eagle]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_desert_eagle_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -814,6 +847,9 @@ aim_hud_offset_pos_16x9				= -0.120501,0.033000,0.000000
 aim_hud_offset_rot_16x9				= -0.017500,-0.010000,-0.010000
 
 ! w_f1.ltx
+![grenade_f1]
+snd_checkout = weapons\generic_checkout, 1.0, 0.4
+
 ![grenade_f1_hud]:hud_base
 fire_point			= 0,0,0
 fire_bone           = wpn_body
@@ -850,6 +886,11 @@ throw_dir			= 0,0,1
 third_person_throw_point_offset = -0.05,0.848,0.706
 
 ; w_fn2000.ltx
+![wpn_fn2000]
+snd_reload        		= weapons\fn2000_reload
+snd_reload_grenade      = weapons\fn2000_grenload, 1.0
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+
 ![wpn_fn2000_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -927,6 +968,9 @@ gl_hud_offset_pos_16x9				= -0.124500,-0.084000,0.000000
 gl_hud_offset_rot_16x9				= -0.170000,0.030000,0.000000
 
 ; w_fort.ltx
+![wpn_fort]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_fort_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -998,6 +1042,13 @@ aim_hud_offset_pos_16x9				= -0.170499,0.074000,0.000000
 aim_hud_offset_rot_16x9				= 0.035000,0.057500,0.010000
 
 ; w_g36.ltx
+![wpn_g36]
+snd_reload              = weapons\g36_reload
+snd_reload_grenade      = weapons\g36_grenload
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_g36_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -1074,6 +1125,12 @@ lean_hud_offset_pos	= 0,0,0
 lean_hud_offset_rot	= 0,0,0
 
 ; w_gauss.ltx
+![wpn_gauss]
+snd_reload					= weapons\gauss_reload
+snd_close					= weapons\generic_close
+snd_bore					= weapons\draw_silent
+snd_bore1					= weapons\gauss_bore_2
+
 ![wpn_gauss_hud]:hud_base
 zoom_hide_crosshair		= true
 attach_place_idx			= 0
@@ -1121,6 +1178,9 @@ anm_idle_moving 			= gauss_idle_moving
 anm_idle_sprint			= gauss_idle_sprint
 
 ; w_gd5.ltx
+![grenade_gd-05]
+snd_checkout = weapons\generic_checkout, 1.0, 0.4
+
 ![grenade_gd-05_hud]:hud_base
 fire_point		= 0,0,0
 fire_bone               = wpn_body
@@ -1164,6 +1224,12 @@ throw_dir			= 0,0,1
 third_person_throw_point_offset = -0.05,0.848,0.706
 
 ; w_groza.ltx
+![wpn_groza]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 1.2
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore		= weapons\groza_bore
+
 ![wpn_groza_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -1242,6 +1308,9 @@ lean_hud_offset_pos	= 0,0,0
 lean_hud_offset_rot	= 0,0,0
 
 ; w_hpsa.ltx
+![wpn_hpsa]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_hpsa_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -1373,6 +1442,13 @@ lean_hud_offset_pos			= 0,0,0
 lean_hud_offset_rot			= 0,0,0
 
 ; w_l85.ltx
+![wpn_l85]
+snd_reload					= weapons\l85_reload
+snd_reload_grenade			= weapons\l85_grenload
+snd_switch					= weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_l85_hud]:hud_base
 zoom_hide_crosshair		= true
 attach_place_idx			= 0
@@ -1446,6 +1522,13 @@ lean_hud_offset_pos		= 0,0,0
 lean_hud_offset_rot		= 0,0,0
 
 ; w_lr300.ltx
+![wpn_lr300]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_lr300_hud]:hud_base
 zoom_hide_crosshair        = true
 attach_place_idx        = 0
@@ -1518,6 +1601,13 @@ lean_hud_offset_pos        = 0,0,0
 lean_hud_offset_rot        = 0,0,0
 
 ; w_mp5.ltx
+![wpn_mp5]
+snd_reload              = weapons\mp5_reload
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_mp5_hud]
 zoom_hide_crosshair     = true
 attach_place_idx        = 0
@@ -1591,6 +1681,9 @@ lean_hud_offset_pos        = 0,0,0
 lean_hud_offset_rot        = 0,0,0
 
 ; w_pb.ltx
+![wpn_pb]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_pb_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -1658,6 +1751,9 @@ aim_hud_offset_pos_16x9				= -0.167000,0.065500,0.000000
 aim_hud_offset_rot_16x9				= 0.015000,0.055000,-0.022500
 
 ; w_pm.ltx
+![wpn_pm]
+snd_reload						= weapons\pistol_reload, 0.8
+
 ![wpn_pm_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -1727,6 +1823,12 @@ aim_hud_offset_pos_16x9				= -0.165000,0.075000,-0.001500
 aim_hud_offset_rot_16x9				= 0.032500,0.055000,-0.025000
 
 ; w_rg6.ltx
+![wpn_rg-6]
+snd_reload			      = weapons\rg6_reload
+snd_open_weapon			= weapons\rg6_reload_start
+snd_add_cartridge			= weapons\rg6_reload
+snd_close_weapon			= weapons\rg6_reload_end
+
 ![wpn_rg-6_hud]:hud_base
 zoom_hide_crosshair		= true
 
@@ -1774,6 +1876,9 @@ lean_hud_offset_pos		= 0,0,0
 lean_hud_offset_rot		= 0,0,0
 
 ; w_rgd5.ltx
+![grenade_rgd5]
+snd_checkout = weapons\generic_checkout, 1.0, 0.4
+
 ![grenade_rgd5_hud]:hud_base
 fire_point		= 0,0,0
 fire_bone               = wpn_body
@@ -1820,13 +1925,17 @@ throw_dir			= 0,0,1
 third_person_throw_point_offset = -0.05,0.848,0.706
 
 ; w_rpg7.ltx
+![wpn_rpg7]
+snd_reload				= weapons\rpg7_reload
+
 ![wpn_rpg7_hud]:hud_base
 attach_place_idx			= 0
 item_visual                   		= dynamics\weapons\wpn_rpg7\wpn_rpg7_hud
 
 fire_point				= -0.020000,0.200500,0.145003
 fire_bone               = wpn_body
-
+!shell_point
+grenade_bone			 	= grenade
 
 hands_position						= 0.020500,-0.206999,0.261999
 hands_orientation					= 3.349998,2.599999,-0.050000
@@ -1859,6 +1968,13 @@ anm_idle_moving					= rpg7_idle_moving
 anm_bore								= rpg7_idle_bore
 
 ; w_sig220.ltx
+![wpn_sig220]
+snd_reload						= weapons\pistol_reload, 0.8
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\mp5_bore
+snd_bore1				= weapons\draw_silent
+
 ![wpn_sig220_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -1930,6 +2046,13 @@ aim_hud_offset_pos_16x9				= -0.168999,0.067000,-0.010000
 aim_hud_offset_rot_16x9				= 0.030000,0.057500,-0.020000
 
 ; w_sig550.ltx
+![wpn_sig550]
+snd_reload              = weapons\sig550_reload
+snd_reload_grenade      = weapons\sig550_grenload
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_sig550_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -2008,6 +2131,11 @@ lean_hud_offset_pos	= 0,0,0
 lean_hud_offset_rot	= 0,0,0
 
 ; w_spas12.ltx
+![wpn_spas12]
+snd_open_weapon            = weapons\draw_silent
+snd_add_cartridge			= weapons\spas12_reload
+snd_close_weapon        = weapons\spas12_reload_end
+
 ![wpn_spas12_hud]:hud_base
 
 shell_point			= 0.028,0.052,0.0147
@@ -2058,6 +2186,11 @@ anm_close					= spas12_reload_end
 anm_reload = spas12_reload
 
 ; w_svd.ltx
+![wpn_svd]
+snd_reload					= weapons\svd_reload
+snd_bore				= weapons\draw_silent
+snd_bore1				= weapons\mp5_bore
+
 ![wpn_svd_hud]:hud_base
 zoom_hide_crosshair		= true
 attach_place_idx			= 0
@@ -2106,6 +2239,9 @@ anm_idle_moving 			= svd_idle_moving
 anm_idle_sprint			= svd_idle_moving
 
 ! w_svu.ltx
+![wpn_svu]
+snd_reload              = weapons\svu_reload
+
 ![wpn_svu_hud]:hud_base
 zoom_hide_crosshair		= true
 attach_place_idx		= 0
@@ -2151,7 +2287,14 @@ anm_idle_moving 			= svu_idle_moving
 anm_idle_sprint			= svu_idle_moving
 
 ; w_toz34.ltx
-![wpn_toz34_hud]:hud_base
+![wpn_toz34]
+snd_reload					= weapons\toz34_reload
+snd_reload_1            = weapons\toz34_reload_one
+snd_close_weapon			= weapons\spas12_close
+snd_add_cartridge			= weapons\w1300_load		;was gen_grenload
+snd_open_weapon			= weapons\spas12_close
+
+![wpn_shotgun_hud]:hud_base
 zoom_hide_crosshair				= true
 
 hands_position				= -0.144001,-0.129499,0.039500
@@ -2169,6 +2312,7 @@ shell_bone							= wpn_body
 
 fire_point							= 0, 0.026, 0.893
 fire_bone                     = wpn_body
+!fire_point2
 
 attach_place_idx					= 0
 item_visual               		= dynamics\weapons\wpn_toz34\wpn_toz34_hud.ogf
@@ -2214,6 +2358,13 @@ aim_hud_offset_pos_16x9				= -0.072000,0.030000,-0.008500
 aim_hud_offset_rot_16x9				= 0.015000,-0.000000,-0.007500
 
 ; w_usp45.ltx
+![wpn_usp]
+snd_reload						= weapons\pistol_reload, 0.8
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\mp5_bore
+snd_bore1				= weapons\draw_silent
+
 ![wpn_usp_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -2280,6 +2431,11 @@ aim_hud_offset_pos_16x9				= -0.166000,0.059000,0.000000
 aim_hud_offset_rot_16x9				= 0.025000,0.055000,0.002500
 
 ; w_val.ltx
+![wpn_val]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+
 ![wpn_val_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -2337,6 +2493,11 @@ lean_hud_offset_rot	= 0,0,0
 grenade_bone            = grenade
 
 ; w_vintorez.ltx
+![wpn_vintorez]
+snd_reload              = weapons\groza_reload, 0.7
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+
 ![wpn_vintorez_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -2414,6 +2575,13 @@ lean_hud_offset_rot	= 0,0,0
 grenade_bone            = grenade
 
 ; w_walther.ltx
+![wpn_walther]
+snd_reload				= weapons\pistol_reload, 0.8
+snd_reload_grenade      = weapons\gen_grenload, 1.0, 0.8
+snd_switch              = weapons\groza_switch, 1.0, 0.5
+snd_bore				= weapons\mp5_bore
+snd_bore1				= weapons\draw_silent
+
 ![wpn_walther_hud]:hud_base
 zoom_hide_crosshair			= true
 
@@ -2486,6 +2654,11 @@ aim_hud_offset_pos_16x9				= -0.171499,0.057000,0.000000
 aim_hud_offset_rot_16x9				= 0.017500,0.057500,0.022500
 
 ; w_wincheaster1300.ltx
+![wpn_wincheaster1300]
+snd_open_weapon            = weapons\draw_silent
+snd_add_cartridge			= weapons\spas12_reload
+snd_close_weapon        = weapons\spas12_reload_end
+
 ![wpn_winchester1300_hud]:hud_base
 
 shell_point			= 0.02,0.072,0.228
